@@ -46,7 +46,7 @@ def construct_logic_error(location_or_region: dict, source: LogicErrorSource) ->
     return KeyError(f"Invalid 'requires' for {object_type} '{object_name}': {source_text} (ERROR {source})")
 
 
-ALLOWED_PARSED_RULE_CHARACTERS = frozenset("&|(){}10")
+ALLOWED_PARSED_RULE_CHARACTERS = frozenset("&|(){10")
 
 
 def parsed_logic_string_to_ast_lambda_body(parsed_logic_string: str, collection_rule_name_stack: list[str]):
@@ -83,11 +83,6 @@ def parsed_logic_string_to_ast_lambda_body(parsed_logic_string: str, collection_
         elif char == ")":
             raise RuntimeError("Error: Missing opening parenthesis")
         elif char == "{":
-            # TODO: Use a single character to signify callables, using "{}" is a leftover from the original
-            #  implementation using `eval` directly on formatted strings.
-            _, char2 = next(enumerated_parsed_logic_string_iter, (None, None))
-            if char2 != "}":
-                raise RuntimeError("Error: Missing close curly brace")
             # Get the name of the collection rule and construct a Call node to call the collection rule with a "state"
             # argument.
             func_name = collection_rule_name_stack.pop()
@@ -304,13 +299,16 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
     # Once the rule is created, it will be cached under the original requires list string.
     original_requires_list = requires_list
 
-    callables: list[CollectionRule] = []
+    item_collection_rules: list[CollectionRule] = []
 
+    # Replace each "|item|" with "{" as a placeholder for the CollectionRule for that item. "{" is a reserved character
+    # for functions in string rules and should not be present in the string by this point. "{" on its own is used
+    # instead of "{}", in order to simplify later parsing code that iterates 1 character at a time.
     for item in re.findall(r'\|[^|]+\|', requires_list):
         if item in subrule_cache:
             rule, item_base = subrule_cache[item]
-            callables.append(rule)
-            requires_list = requires_list.replace(item_base, "{}", 1)
+            item_collection_rules.append(rule)
+            requires_list = requires_list.replace(item_base, "{", 1)
             continue
 
         # New sub-rule.
@@ -318,14 +316,14 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
 
         if require_type == "category":
             rule = category_sub_rule(world, player, area, item_name, item_count)
-            callables.append(rule)
+            item_collection_rules.append(rule)
             subrule_cache[item] = rule, item_base
-            requires_list = requires_list.replace(item_base, "{}", 1)
+            requires_list = requires_list.replace(item_base, "{", 1)
         elif require_type == 'item':
             rule = item_sub_rule(world, player, item_name, item_count)
-            callables.append(rule)
+            item_collection_rules.append(rule)
             subrule_cache[item] = rule, item_base
-            requires_list = requires_list.replace(item_base, "{}", 1)
+            requires_list = requires_list.replace(item_base, "{", 1)
         else:
             # Should never happen because get_parts_from_item() defaults to 'item'
             raise RuntimeError(f"Unexpected require_type: '{require_type}'")
@@ -360,7 +358,7 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
 
     # If everything is boolean logic and/or constants, and either there is no "0"s or no "1"s, then it is easy to deduce
     # the result.
-    if not callables:
+    if not item_collection_rules:
         if "1" not in requires_list:
             # Must evaluate to False because there is only zeroes
             rule_cache[original_requires_list] = _never
@@ -375,10 +373,10 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
     # "or"/"OR" with word boundaries and optional whitespace on either side -> "|"
     requires_list = re.sub(r'\s?\bOR\b\s?', '|', requires_list, 0, re.IGNORECASE)
 
-    # Ensure the characters in the string have been reduced to only what is allowed/expected ("&|(){}10").
+    # Ensure the characters in the string have been reduced to only what is allowed/expected ("&|(){10").
     # & and | are boolean logic.
     # ( and ) are any parentheses in place from the original rule.
-    # { and } signify CollectionRule callables that will be used with string formatting later on.
+    # { signifies a CollectionRule in item_collection_rules.
     # 1 and 0 can come from pre-resolved functions, and 0 can come from a potentially invalid rule.
     used_characters = set(requires_list)
     if used_characters | ALLOWED_PARSED_RULE_CHARACTERS != ALLOWED_PARSED_RULE_CHARACTERS:
@@ -386,7 +384,7 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
         raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
                         f" {world.game}. Error: Found unexpected characters after parsing: {bad_characters}.")
 
-    callable_names = [f"f{i}" for i in range(len(callables))]
+    callable_names = [f"f{i}" for i in range(len(item_collection_rules))]
     callable_names_stack = callable_names[::-1]
     parsed_ast = parsed_logic_string_to_ast_lambda_body(requires_list, callable_names_stack)
 
@@ -409,9 +407,9 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
     ast_lambda = ast.Lambda(args=ast.arguments(args=[ast.arg(arg="state")]), body=parsed_ast)
     expr = ast.Expression(body=ast_lambda)
 
-    # The callables are referenced by name within `parsed_ast`. Some may have been removed from `parsed_ast` by
-    # optimizations, so will be unused in that case.
-    args = dict(zip(callable_names, callables, strict=True))
+    # The item_collection_rules are referenced by name within `parsed_ast`. Some may have been removed from `parsed_ast`
+    # by optimizations, so will be unused in that case.
+    args = dict(zip(callable_names, item_collection_rules, strict=True))
 
     rule_func: CollectionRule = eval(compile(ast.fix_missing_locations(expr), "<string>", "eval"), args)
 
