@@ -339,23 +339,25 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
         requires_list = requires_list + (")" * open_close_difference)
         import warnings
         warnings.warn(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
-                      f" {world.game}. Error: Missing {open_close_difference} close parentheses.")
+                      f" {world.game}. Warning: {open_close_difference} missing close parentheses have been added"
+                      f" automatically to the end.")
     elif open_close_difference < 0:
         requires_list = ("(" * (-open_close_difference)) + requires_list
         import warnings
         warnings.warn(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
-                      f" {world.game}.  Error: Missing {-open_close_difference} open parentheses.")
+                      f" {world.game}. Warning: {-open_close_difference} missing open parentheses have been added"
+                      f" automatically to the start.")
 
     if "!" in requires_list:
-        # Manual seems to have at some point supported negation. This would be dangerous because it enables users to
-        # easily create invalid logic by mistake, where gaining an item would reduce accessibility. Archipelago strictly
-        # requires that gaining an item only ever increases accessibility or keeps accessibility the same.
+        # Manual supported logical negation at one point. This was dangerous because it enables users to easily create
+        # invalid logic by mistake, where gaining an item would reduce accessibility. Archipelago strictly requires that
+        # gaining an item only ever increases accessibility or keeps accessibility the same.
         raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
-                        f" {world.game}. Error: Rule contains negation. If you need to check for a yaml option being"
-                        f" disabled, used YamlDisabled.")
+                        f" {world.game}. Error: Rule contains negation ('!'). If you need to check for a yaml option"
+                        f" being disabled, use YamlDisabled instead.")
 
-    # If everything is boolean logic and/or constants, and either there is no "0"s or no "1"s, then it is easy to deduce
-    # the result.
+    # If everything is boolean logic and/or constants, and either there are no "0"s or no "1"s, then it is easy to
+    # deduce the result.
     if not item_collection_rules:
         if "1" not in requires_list:
             # Must evaluate to False because there is only zeroes
@@ -366,9 +368,9 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
             rule_cache[original_requires_list] = _always
             return _always
 
-    # "and"/"AND" with word boundaries and optional whitespace on either side -> "&"
+    # "and"/"AND" with word boundaries and optional singular whitespace on either side -> "&"
     requires_list = re.sub(r'\s?\bAND\b\s?', '&', requires_list, 0, re.IGNORECASE)
-    # "or"/"OR" with word boundaries and optional whitespace on either side -> "|"
+    # "or"/"OR" with word boundaries and optional singular whitespace on either side -> "|"
     requires_list = re.sub(r'\s?\bOR\b\s?', '|', requires_list, 0, re.IGNORECASE)
 
     # Ensure the characters in the string have been reduced to only what is allowed/expected ("&|(){10").
@@ -382,9 +384,14 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
         raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
                         f" {world.game}. Error: Found unexpected characters after parsing: {bad_characters}.")
 
-    callable_names = [f"f{i}" for i in range(len(item_collection_rules))]
-    callable_names_stack = callable_names[::-1]
-    parsed_ast = parsed_logic_string_to_ast_lambda_body(requires_list, callable_names_stack)
+    # The item CollectionRules are identified by the order they are found in the rule, from left to right.
+    item_collection_rule_names = [f"f{i}" for i in range(len(item_collection_rules))]
+    # Reverse the list to create a new list that can be popped like a stack, where the first element popped is the first
+    # element in `item_collection_rule_names`.
+    item_collection_rule_names_stack = item_collection_rule_names[::-1]
+
+    # Further parse the parsed logic string into ast nodes.
+    parsed_ast = parsed_logic_string_to_ast_lambda_body(requires_list, item_collection_rule_names_stack)
 
     if isinstance(parsed_ast, ast.Constant):
         # The requires string was reduced to a constant by optimisations, e.g. "1 and 0" -> False.
@@ -399,19 +406,21 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
             raise RuntimeError(f"Unexpected literal evaluation of {requires_list} as\n{ast.dump(parsed_ast, indent=4)}"
                                f"\ninto {literal_value!r}")
 
+    # If the resulting ast node is not a Constant, then it must be either a BoolOp or a Call.
     assert isinstance(parsed_ast, (ast.BoolOp, ast.Call))
 
-    # Create an expression that evaluates to `lambda state: <parsed_ast>`.
+    # Create an expression that evaluates to `lambda state: <parsed_ast>`, compatible with CollectionRule typing.
     ast_lambda = ast.Lambda(args=ast.arguments(args=[ast.arg(arg="state")]), body=parsed_ast)
     expr = ast.Expression(body=ast_lambda)
 
     # The item_collection_rules are referenced by name within `parsed_ast`. Some may have been removed from `parsed_ast`
     # by optimizations, so will be unused in that case.
-    args = dict(zip(callable_names, item_collection_rules, strict=True))
+    args = dict(zip(item_collection_rule_names, item_collection_rules, strict=True))
 
+    # Compile the ast Expression node into a <code> object and then evaluate it to create the lambda.
     rule_func: CollectionRule = eval(compile(ast.fix_missing_locations(expr), "<string>", "eval"), args)
 
-    # Store the evaluated lambda into the cache.
+    # Store the CollectionRule lambda into the cache.
     rule_cache[original_requires_list] = rule_func
     return rule_func
 
