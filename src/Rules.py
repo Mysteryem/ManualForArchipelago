@@ -1,4 +1,5 @@
-from typing import TYPE_CHECKING, Optional
+import ast
+from typing import TYPE_CHECKING, Optional, Literal
 from enum import IntEnum
 
 from .Regions import regionMap
@@ -7,7 +8,7 @@ from .Helpers import clamp, is_item_enabled, get_items_with_value, is_option_ena
 
 from BaseClasses import MultiWorld, CollectionState
 from worlds.AutoWorld import World
-from worlds.generic.Rules import set_rule, add_rule
+from worlds.generic.Rules import set_rule, add_rule, CollectionRule
 
 import re
 import math
@@ -42,63 +43,385 @@ def construct_logic_error(location_or_region: dict, source: LogicErrorSource) ->
 
     return KeyError(f"Invalid 'requires' for {object_type} '{object_name}': {source_text} (ERROR {source})")
 
-def infix_to_postfix(expr, location):
-    prec = {"&": 2, "|": 2, "!": 3}
-    stack = []
-    postfix = ""
 
-    try:
-        for c in expr:
-            if c.isnumeric():
-                postfix += c
-            elif c in prec:
-                while stack and stack[-1] != "(" and prec[c] <= prec[stack[-1]]:
-                    postfix += stack.pop()
-                stack.append(c)
-            elif c == "(":
-                stack.append(c)
-            elif c == ")":
-                while stack and stack[-1] != "(":
-                    postfix += stack.pop()
-                stack.pop()
-
-        while stack:
-            postfix += stack.pop()
-    except Exception:
-        raise construct_logic_error(location, LogicErrorSource.INFIX_TO_POSTFIX)
-
-    return postfix
+ALLOWED_PARSED_RULE_CHARACTERS = frozenset("&|(){}10")
 
 
-def evaluate_postfix(expr: str, location: str) -> bool:
-    stack = []
+def parsed_logic_string_to_ast_lambda_body(parsed_logic_string: str, collection_rule_name_stack: list[str]):
+    """
+    Manual logic treats "and" and "or" as having the same precedence, so both are evaluated from left-to-right.
 
-    try:
-        for c in expr:
-            if c == "0":
-                stack.append(False)
-            elif c == "1":
-                stack.append(True)
-            elif c == "&":
-                op2 = stack.pop()
-                op1 = stack.pop()
-                stack.append(op1 and op2)
-            elif c == "|":
-                op2 = stack.pop()
-                op1 = stack.pop()
-                stack.append(op1 or op2)
-            elif c == "!":
-                op = stack.pop()
-                stack.append(not op)
-    except Exception:
-        raise construct_logic_error(location, LogicErrorSource.EVALUATE_POSTFIX)
+    This function iterates a parsed logic string left-to-right, into ast nodes suitable as a lambda body.
+    """
+    enumerated_parsed_logic_string_iter = enumerate(parsed_logic_string)
+    left_operand = None
+    operator: Literal["and", "or", None] = None
+    for char_index, char in enumerated_parsed_logic_string_iter:
+        if char == "(":
+            # Iterate further through the string to find the corresponding close parenthesis.
+            open_count = 1
+            for char_index2, char2 in enumerated_parsed_logic_string_iter:
+                if char2 == "(":
+                    # Found another open parenthesis, so an extra close parenthesis will need to be found.
+                    open_count += 1
+                elif char2 == ")":
+                    open_count -= 1
+                    if open_count == 0:
+                        # The close parenthesis has been found, so the start parenthesis is at index `char_index` and
+                        # the close parenthesis is at index `char_index2`.
+                        break
+            else:
+                # Normal use checks for a mismatched number of open and close parenthesis, so this conditional branch
+                # should be unreachable.
+                raise RuntimeError("Error: Missing closing parenthesis")
+            # Get everything inside the parentheses.
+            parenthesized_operand = parsed_logic_string[char_index + 1:char_index2]
+            # Recursively convert the parenthesized contents to ast nodes.
+            right_operand = parsed_logic_string_to_ast_lambda_body(parenthesized_operand, collection_rule_name_stack)
+        elif char == ")":
+            raise RuntimeError("Error: Missing opening parenthesis")
+        elif char == "{":
+            # TODO: Use a single character to signify callables, using "{}" is a leftover from the original
+            #  implementation using `eval` directly on formatted strings.
+            _, char2 = next(enumerated_parsed_logic_string_iter, (None, None))
+            if char2 != "}":
+                raise RuntimeError("Error: Missing close curly brace")
+            # Get the name of the collection rule and construct a Call node to call the collection rule with a "state"
+            # argument.
+            func_name = collection_rule_name_stack.pop()
+            func_args = [ast.Name(id="state", ctx=ast.Load())]
+            right_operand = ast.Call(func=ast.Name(id=func_name, ctx=ast.Load()), args=func_args)
+        elif char == "&":
+            if operator is not None:
+                # todo: Use `construct_logic_error()`
+                raise RuntimeError("Error: Multiple operators found in a row")
+            operator = "and"
+            # Need to find the next operand to apply the operator.
+            continue
+        elif char == "|":
+            if operator is not None:
+                # todo: Use `construct_logic_error()`
+                raise RuntimeError("Error: Multiple operators found in a row")
+            operator = "or"
+            # Need to find the next operand to apply the operator.
+            continue
+        elif char == "1":
+            right_operand = ast.Constant(True)
+        elif char == "0":
+            right_operand = ast.Constant(False)
+        else:
+            # Normal use checks that all characters in `s` are also in `ALLOWED_PARSED_RULE_CHARACTERS`, so this
+            # conditional branch should be unreachable in normal use.
+            raise RuntimeError(f"Error: Unexpected character {char!r} at {parsed_logic_string!r}[{char_index}]")
 
-    if len(stack) != 1:
-        raise construct_logic_error(location, LogicErrorSource.EVALUATE_STACK_SIZE)
+        # Assigning to `operator` should continue to the next character. Everything else should either assign to
+        # `right_operand` or raise an exception, so `right_operand` should always be assigned to something non-None.
+        assert right_operand is not None
 
-    return stack.pop()
+        if left_operand is None:
+            left_operand = right_operand
+            continue
+
+        # Combine `left_operand` and `right_operand` according to `operator`.
+        if operator is None:
+            raise RuntimeError("Error: Missing operator")
+
+        if operator == "and":
+            if isinstance(left_operand, ast.Constant):
+                constant_value = left_operand.value
+                if constant_value is False:
+                    # `False and right_operand` is always False, so drop `right_operand`.
+                    pass
+                elif constant_value is True:
+                    # `True and right_operand` is always `right_operand`, so drop `left_operand`.
+                    left_operand = right_operand
+                else:
+                    raise RuntimeError(f"Unexpected constant: {constant_value}")
+            elif isinstance(right_operand, ast.Constant):
+                constant_value = right_operand.value
+                if constant_value is False:
+                    # `left_operand and False` is always False, so drop `left_operand`.
+                    left_operand = right_operand
+                elif constant_value is True:
+                    # `left_operand and True` is always `left_operand`, so drop `right_operand`.
+                    pass
+                else:
+                    raise RuntimeError(f"Unexpected constant: {constant_value}")
+            else:
+                left_operand = ast.BoolOp(op=ast.And(), values=[left_operand, right_operand])
+        else:
+            assert operator == "or"
+            if isinstance(left_operand, ast.Constant):
+                constant_value = left_operand.value
+                if constant_value is True:
+                    # `True or right_operand` is always True, so drop `right_operand`.
+                    pass
+                elif constant_value is False:
+                    # `False or right_operand` is always `right_operand`, so drop `left_operand`
+                    left_operand = right_operand
+                else:
+                    raise RuntimeError(f"Unexpected constant: {constant_value}")
+            elif isinstance(right_operand, ast.Constant):
+                constant_value = right_operand.value
+                if constant_value is True:
+                    # `left_operand or True` is always True, so drop `left_operand`.
+                    left_operand = right_operand
+                elif constant_value is False:
+                    # `left_operand or False` is always `left_operand`, so drop `right_operand`.
+                    pass
+                else:
+                    raise RuntimeError(f"Unexpected constant: {constant_value}")
+            else:
+                left_operand = ast.BoolOp(op=ast.Or(), values=[left_operand, right_operand])
+        # Reset the operator.
+        operator = None
+        # Del `right_operand` for safety because accidentally bleeding the previous `right_operand` into the next
+        # iteration could result in confusing errors.
+        del right_operand
+
+    # Everything combines into the left-most node.
+    if left_operand is None:
+        # Treat an empty rule as True. Usually, rule parsing should be able to short-circuit an empty rule before
+        # calling this function.
+        return ast.Constant(True)
+    else:
+        return left_operand
+
+
+def get_parts_from_item(item: str):
+    """Parses an item in a list returned by item_items_from_requires_list."""
+    require_type = 'item'
+
+    if '|@' in item:
+        require_type = 'category'
+
+    item_base = item
+    item = item.lstrip('|@$').rstrip('|')
+
+    item_parts = item.split(":")  # type: list[str]
+    item_name = item
+    item_count = "1"
+
+    if len(item_parts) > 1:
+        item_name = item_parts[0].strip()
+        item_count = item_parts[1].strip()
+
+    return require_type, item_base, item_name, item_count
+
+
+def category_sub_rule(world, player, area, item_name, item_count) -> CollectionRule:
+    """Convert "|@<item_name>:<item_count>|" logic into a CollectionRule."""
+    category_item_names: list[str] = [item["name"] for item in world.item_name_to_item.values()
+                                      if "category" in item and item_name in item["category"]]
+    item_count_lower = item_count.lower()
+    if item_count_lower == 'all':
+        def has_category_count(state: CollectionState):
+            items_counts = world.get_item_counts(player)
+            category_items_counts = sum([items_counts.get(item_name, 0) for item_name in category_item_names])
+            return state.has_from_list(category_item_names, player, category_items_counts)
+    elif item_count_lower == 'half':
+        def has_category_count(state: CollectionState):
+            items_counts = world.get_item_counts(player)
+            category_items_counts = sum([items_counts.get(item_name, 0) for item_name in category_item_names])
+            return state.has_from_list(category_item_names, player, category_items_counts // 2)
+    elif item_count.endswith("%") and len(item_count) > 1:
+        percent = float(item_count[:-1]) / 100
+        percent = min(percent, 1.0)
+        percent = max(0.0, percent)
+
+        def has_category_count(state: CollectionState):
+            items_counts = world.get_item_counts(player)
+            category_items_counts = sum([items_counts.get(item_name, 0) for item_name in category_item_names])
+            required_count = math.ceil(category_items_counts * percent)
+            return state.has_from_list(category_item_names, player, required_count)
+    else:
+        try:
+            required_count = int(item_count)
+        except ValueError as e:
+            raise ValueError(f"Invalid item count `{item_name}` in {area}.") from e
+
+        def has_category_count(state: CollectionState):
+            return state.has_from_list(category_item_names, player, required_count)
+
+    return has_category_count
+
+
+def item_sub_rule(world, player, item_name, item_count) -> CollectionRule:
+    """Convert "|<item_name>:<item_count>|" logic into a CollectionRule."""
+    item_count_lower = item_count.lower()
+    if item_count_lower == 'all':
+        def has_item_count(state: CollectionState):
+            items_counts = world.get_item_counts(player)
+            item_current_count = items_counts.get(item_name, 0)
+            return state.has(item_name, player, item_current_count)
+    elif item_count_lower == 'half':
+        def has_item_count(state: CollectionState):
+            items_counts = world.get_item_counts(player)
+            item_current_count = items_counts.get(item_name, 0)
+            return state.has(item_name, player, item_current_count // 2)
+    elif item_count.endswith("%") and len(item_count) > 1:
+        percent = float(item_count[:-1]) / 100
+        percent = min(percent, 1.0)
+        percent = max(0.0, percent)
+
+        def has_item_count(state: CollectionState):
+            items_counts = world.get_item_counts(player)
+            item_current_count = items_counts.get(item_name, 0)
+            item_percent_count = math.ceil(item_current_count * percent)
+            return state.has(item_name, player, item_percent_count)
+    else:
+        required_item_count = int(item_count)
+
+        def has_item_count(state: CollectionState):
+            return state.has(item_name, player, required_item_count)
+    return has_item_count
+
+
+def _always(state: CollectionState):
+    """Function used in place of `lambda state: True` to reduce the number of lambdas created."""
+    return True
+
+
+def _never(state: CollectionState):
+    """Function used in place of `lambda state: False` to reduce the number of lambdas created."""
+    return False
+
+
+def requires_string_to_callable(world: World, area: dict, requires_list: str, rule_cache: dict[str, CollectionRule],
+                                subrule_cache: dict[str, tuple[CollectionRule, str]]) -> CollectionRule:
+    player = world.player
+
+    if requires_list in rule_cache:
+        return rule_cache[requires_list]
+
+    if "{" in requires_list or "}" in requires_list:
+        # All functions should have been evaluated by this point. If there are any curly braces remaining, then there is
+        # a syntax error in the requires string.
+        raise construct_logic_error(area, LogicErrorSource.EVALUATE_STACK_SIZE)
+
+    # Once the rule is created, it will be cached under the original requires list string.
+    original_requires_list = requires_list
+
+    callables: list[CollectionRule] = []
+
+    for item in re.findall(r'\|[^|]+\|', requires_list):
+        if item in subrule_cache:
+            rule, item_base = subrule_cache[item]
+            callables.append(rule)
+            requires_list = requires_list.replace(item_base, "{}", 1)
+            continue
+
+        # New sub-rule.
+        require_type, item_base, item_name, item_count = get_parts_from_item(item)
+
+        if require_type == "category":
+            rule = category_sub_rule(world, player, area, item_name, item_count)
+            callables.append(rule)
+            subrule_cache[item] = rule, item_base
+            requires_list = requires_list.replace(item_base, "{}", 1)
+        elif require_type == 'item':
+            rule = item_sub_rule(world, player, item_name, item_count)
+            callables.append(rule)
+            subrule_cache[item] = rule, item_base
+            requires_list = requires_list.replace(item_base, "{}", 1)
+        else:
+            # Should never happen because get_parts_from_item() defaults to 'item'
+            raise RuntimeError(f"Unexpected require_type: '{require_type}'")
+
+    if "|" in requires_list:
+        # All "|<item/category[:count]>|" items should have been replaced with string 'replacement fields' ("{}"). If
+        # there are any pipes ("|") remaining, then there is a syntax error in the requires string.
+        raise construct_logic_error(area, LogicErrorSource.EVALUATE_POSTFIX)
+
+    # Attempt to auto-fix missing open/close parentheses and warn when they are found.
+    open_count = requires_list.count("(")
+    close_count = requires_list.count(")")
+    open_close_difference = open_count - close_count
+    if open_close_difference > 0:
+        requires_list = requires_list + (")" * open_close_difference)
+        import warnings
+        warnings.warn(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
+                      f" {world.game}. Error: Missing {open_close_difference} close parentheses.")
+    elif open_close_difference < 0:
+        requires_list = ("(" * (-open_close_difference)) + requires_list
+        import warnings
+        warnings.warn(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
+                      f" {world.game}.  Error: Missing {-open_close_difference} open parentheses.")
+
+    if "!" in requires_list:
+        # Manual seems to have at some point supported negation. This would be dangerous because it enables users to
+        # easily create invalid logic by mistake, where gaining an item would reduce accessibility. Archipelago strictly
+        # requires that gaining an item only ever increases accessibility or keeps accessibility the same.
+        raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
+                        f" {world.game}. Error: Rule contains negation. If you need to check for a yaml option being"
+                        f" disabled, used YamlDisabled.")
+
+    # If everything is boolean logic and/or constants, and either there is no "0"s or no "1"s, then it is easy to deduce
+    # the result.
+    if not callables:
+        if "1" not in requires_list:
+            # Must evaluate to False because there is only zeroes
+            rule_cache[original_requires_list] = _never
+            return _never
+        if "0" not in requires_list:
+            # Must evaluate to True because there is only ones
+            rule_cache[original_requires_list] = _always
+            return _always
+
+    # "and"/"AND" with word boundaries and optional whitespace on either side -> "&"
+    requires_list = re.sub(r'\s?\bAND\b\s?', '&', requires_list, 0, re.IGNORECASE)
+    # "or"/"OR" with word boundaries and optional whitespace on either side -> "|"
+    requires_list = re.sub(r'\s?\bOR\b\s?', '|', requires_list, 0, re.IGNORECASE)
+
+    # Ensure the characters in the string have been reduced to only what is allowed/expected ("&|(){}10").
+    # & and | are boolean logic.
+    # ( and ) are any parentheses in place from the original rule.
+    # { and } signify CollectionRule callables that will be used with string formatting later on.
+    # 1 and 0 can come from pre-resolved functions, and 0 can come from a potentially invalid rule.
+    used_characters = set(requires_list)
+    if used_characters | ALLOWED_PARSED_RULE_CHARACTERS != ALLOWED_PARSED_RULE_CHARACTERS:
+        bad_characters = used_characters - ALLOWED_PARSED_RULE_CHARACTERS
+        raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
+                        f" {world.game}. Error: Found unexpected characters after parsing: {bad_characters}.")
+
+    callable_names = [f"f{i}" for i in range(len(callables))]
+    callable_names_stack = callable_names[::-1]
+    parsed_ast = parsed_logic_string_to_ast_lambda_body(requires_list, callable_names_stack)
+
+    if isinstance(parsed_ast, ast.Constant):
+        # The requires string was reduced to a constant by optimisations, e.g. "1 and 0" -> False.
+        literal_value = parsed_ast.value
+        if literal_value is True:
+            rule_cache[original_requires_list] = _always
+            return _always
+        elif literal_value is False:
+            rule_cache[original_requires_list] = _never
+            return _never
+        else:
+            raise RuntimeError(f"Unexpected literal evaluation of {requires_list} as\n{ast.dump(parsed_ast, indent=4)}"
+                               f"\ninto {literal_value!r}")
+
+    assert isinstance(parsed_ast, (ast.BoolOp, ast.Call))
+
+    # Create an expression that evaluates to `lambda state: <parsed_ast>`.
+    ast_lambda = ast.Lambda(args=ast.arguments(args=[ast.arg(arg="state")]), body=parsed_ast)
+    expr = ast.Expression(body=ast_lambda)
+
+    # The callables are referenced by name within `parsed_ast`. Some may have been removed from `parsed_ast` by
+    # optimizations, so will be unused in that case.
+    args = dict(zip(callable_names, callables, strict=True))
+
+    rule_func: CollectionRule = eval(compile(ast.fix_missing_locations(expr), "<string>", "eval"), args)
+
+    # Store the evaluated lambda into the cache.
+    rule_cache[original_requires_list] = rule_func
+    return rule_func
+
 
 def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
+    rule_cache: dict[str, CollectionRule] = {}
+    subrule_cache: dict[str, tuple[CollectionRule, str]] = {}
+
     # this is only called when the area (think, location or region) has a "requires" field that is a string
     def checkRequireStringForArea(state: CollectionState, area: dict):
         requires_list = area["requires"]
@@ -153,73 +476,9 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
 
         requires_list = findAndRecursivelyExecuteFunctions(requires_list)
 
-        # parse user written statement into list of each item
-        for item in re.findall(r'\|[^|]+\|', requires_list):
-            require_type = 'item'
-
-            if '|@' in item:
-                require_type = 'category'
-
-            item_base = item
-            item = item.lstrip('|@$').rstrip('|')
-
-            item_parts = item.split(":")  # type: list[str]
-            item_name = item
-            item_count = "1"
-
-
-            if len(item_parts) > 1:
-                item_name = item_parts[0].strip()
-                item_count = item_parts[1].strip()
-
-            total = 0
-
-            if require_type == 'category':
-                category_items = [item for item in world.item_name_to_item.values() if "category" in item and item_name in item["category"]]
-                category_items_counts = sum([items_counts.get(category_item["name"], 0) for category_item in category_items])
-                if item_count.lower() == 'all':
-                    item_count = category_items_counts
-                elif item_count.lower() == 'half':
-                    item_count = int(category_items_counts / 2)
-                elif item_count.endswith('%') and len(item_count) > 1:
-                    percent = clamp(float(item_count[:-1]) / 100, 0, 1)
-                    item_count = math.ceil(category_items_counts * percent)
-                else:
-                    try:
-                        item_count = int(item_count)
-                    except ValueError as e:
-                        raise ValueError(f"Invalid item count `{item_name}` in {area}.") from e
-
-                for category_item in category_items:
-                    total += state.count(category_item["name"], player)
-
-                    if total >= item_count:
-                        requires_list = requires_list.replace(item_base, "1")
-            elif require_type == 'item':
-                item_current_count = items_counts.get(item_name, 0)
-                if item_count.lower() == 'all':
-                    item_count = item_current_count
-                elif item_count.lower() == 'half':
-                    item_count = int(item_current_count / 2)
-                elif item_count.endswith('%') and len(item_count) > 1:
-                    percent = clamp(float(item_count[:-1]) / 100, 0, 1)
-                    item_count = math.ceil(item_current_count * percent)
-                else:
-                    item_count = int(item_count)
-
-                total = state.count(item_name, player)
-
-                if total >= item_count:
-                    requires_list = requires_list.replace(item_base, "1")
-
-            if total <= item_count:
-                requires_list = requires_list.replace(item_base, "0")
-
-        requires_list = re.sub(r'\s?\bAND\b\s?', '&', requires_list, 0, re.IGNORECASE)
-        requires_list = re.sub(r'\s?\bOR\b\s?', '|', requires_list, 0, re.IGNORECASE)
-
-        requires_string = infix_to_postfix("".join(requires_list), area)
-        return (evaluate_postfix(requires_string, area))
+        # The requires_list is now reduced to only item checks and can be converted into a callable.
+        func = requires_string_to_callable(world, area, requires_list, rule_cache, subrule_cache)
+        return func(state)
 
     # this is only called when the area (think, location or region) has a "requires" field that is a dict
     def checkRequireDictForArea(state: CollectionState, area: dict):
