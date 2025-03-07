@@ -204,7 +204,7 @@ def get_parts_from_item(item: str):
     return require_type, item_base, item_name, item_count
 
 
-def category_sub_rule(world, player, area, item_name, item_count) -> CollectionRule:
+def category_sub_rule(world: "ManualWorld", player: int, area: dict, item_name: str, item_count: str) -> CollectionRule:
     """Convert "|@<item_name>:<item_count>|" logic into a CollectionRule."""
     category_item_names: list[str] = [item["name"] for item in world.item_name_to_item.values()
                                       if "category" in item and item_name in item["category"]]
@@ -241,7 +241,7 @@ def category_sub_rule(world, player, area, item_name, item_count) -> CollectionR
     return has_category_count
 
 
-def item_sub_rule(world, player, item_name, item_count) -> CollectionRule:
+def item_sub_rule(world: "ManualWorld", player: int, area: dict, item_name: str, item_count: str) -> CollectionRule:
     """Convert "|<item_name>:<item_count>|" logic into a CollectionRule."""
     item_count_lower = item_count.lower()
     if item_count_lower == 'all':
@@ -265,24 +265,30 @@ def item_sub_rule(world, player, item_name, item_count) -> CollectionRule:
             item_percent_count = math.ceil(item_current_count * percent)
             return state.has(item_name, player, item_percent_count)
     else:
-        required_item_count = int(item_count)
+        try:
+            required_item_count = int(item_count)
+        except ValueError as e:
+            raise ValueError(f"Invalid item count `{item_name}` in {area}.") from e
 
         def has_item_count(state: CollectionState):
             return state.has(item_name, player, required_item_count)
     return has_item_count
 
 
+# noinspection PyUnusedLocal
 def _always(state: CollectionState):
     """Function used in place of `lambda state: True` to reduce the number of lambdas created."""
     return True
 
 
+# noinspection PyUnusedLocal
 def _never(state: CollectionState):
     """Function used in place of `lambda state: False` to reduce the number of lambdas created."""
     return False
 
 
-def requires_string_to_callable(world: World, area: dict, requires_list: str, rule_cache: dict[str, CollectionRule],
+def requires_string_to_callable(world: "ManualWorld", area: dict, requires_list: str,
+                                rule_cache: dict[str, CollectionRule],
                                 subrule_cache: dict[str, tuple[CollectionRule, str]]) -> CollectionRule:
     player = world.player
 
@@ -318,7 +324,7 @@ def requires_string_to_callable(world: World, area: dict, requires_list: str, ru
             subrule_cache[item] = rule, item_base
             requires_list = requires_list.replace(item_base, "{", 1)
         elif require_type == 'item':
-            rule = item_sub_rule(world, player, item_name, item_count)
+            rule = item_sub_rule(world, player, area, item_name, item_count)
             item_collection_rules.append(rule)
             subrule_cache[item] = rule, item_base
             requires_list = requires_list.replace(item_base, "{", 1)
