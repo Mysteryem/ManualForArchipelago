@@ -1,5 +1,8 @@
 import ast
-from typing import TYPE_CHECKING, Optional, Literal
+from collections import OrderedDict
+from copy import deepcopy
+from functools import lru_cache
+from typing import TYPE_CHECKING, Optional, Literal, Union, Callable, ClassVar
 from enum import IntEnum
 
 from .Regions import regionMap
@@ -44,10 +47,460 @@ def construct_logic_error(location_or_region: dict, source: LogicErrorSource) ->
     return KeyError(f"Invalid 'requires' for {object_type} '{object_name}': {source_text} (ERROR {source})")
 
 
-ALLOWED_PARSED_RULE_CHARACTERS = frozenset("&|(){10")
+# noinspection PyUnusedLocal
+def _always(state: CollectionState):
+    """Function used in place of `lambda state: True` to reduce the number of lambdas created."""
+    return True
 
 
-def parsed_logic_string_to_ast_lambda_body(parsed_logic_string: str, collection_rule_name_stack: list[str]):
+# noinspection PyUnusedLocal
+def _never(state: CollectionState):
+    """Function used in place of `lambda state: False` to reduce the number of lambdas created."""
+    return False
+
+
+HookFunction = Callable[[World, MultiWorld, CollectionState, int, ...], Union[bool, str]]
+
+
+class RuleBuilder:
+    max_runtime_rule_cache_size: ClassVar[int] = 2048
+
+    world: "ManualWorld"
+    multiworld: MultiWorld
+    player: int
+
+    # Cache of all static string rules.
+    rule_cache: dict[str, CollectionRule]
+
+    # Cache of individual |<item>:<item_count>| rules.
+    subrule_cache: dict[str, tuple[CollectionRule, str]]
+
+    # Least Recently Used cache of runtime evaluated string rules, as returned from hook functions.
+    runtime_rule_cache: OrderedDict[str, CollectionRule]
+
+    get_function_from_item: Callable[[tuple[str, str]], tuple[str, CollectionRule]]
+
+    def __init__(self, world: "ManualWorld"):
+        self.world = world
+        self.multiworld = world.multiworld
+        self.player = world.player
+
+        self.rule_cache = {}
+        self.subrule_cache = {}
+        self.runtime_rule_cache = OrderedDict()
+
+        # Caching is done per instance, rather than being shared by each instance.
+        self.get_function_from_item = lru_cache(RuleBuilder.max_runtime_rule_cache_size)(self._get_function_from_item)
+
+    @staticmethod
+    def create_collection_rule_from_ast(original_rule_string: str,
+                                        node: ast.BoolOp | ast.Call | ast.Constant, args: dict[str, CollectionRule]
+                                        ) -> CollectionRule:
+        if isinstance(node, ast.Constant):
+            # The only allowed constants are True/False.
+            literal_value = node.value
+            if literal_value is True:
+                return _always
+            elif literal_value is False:
+                return _never
+            else:
+                raise RuntimeError(f"Unexpected literal evaluation of {original_rule_string} as"
+                                   f"\n{ast.dump(node, indent=4)}"
+                                   f"\ninto {literal_value!r}")
+
+        # Create an expression that evaluates to `lambda state: <parsed_ast>`, compatible with CollectionRule typing.
+        ast_lambda = ast.Lambda(args=ast.arguments(args=[ast.arg(arg="state")]), body=node)
+        expr = ast.Expression(body=ast_lambda)
+
+        # Compile the ast Expression node into a <code> object and then evaluate it to create the lambda.
+        rule_func: CollectionRule = eval(compile(ast.fix_missing_locations(expr), "<string>", "eval"), args)
+
+        return rule_func
+
+    @staticmethod
+    def convert_req_function_args(func, args: list[str]):
+        parameters = inspect.signature(func).parameters
+        knownParameters = ["world", "multiworld", "state", "player"]
+        index = -1
+        for parameter in parameters.values():
+            if parameter.name in knownParameters:
+                continue
+            index += 1
+            target_type = parameter.annotation
+
+            if index < len(args) and args[index] != "":
+                value = args[index].strip()
+            else:
+                if parameter.default is not inspect.Parameter.empty:
+                    if index < len(args):
+                        args[index] = parameter.default
+                    continue
+                else:
+                    if parameter.annotation is inspect.Parameter.empty:
+                        raise ConvertReqFunctionArgsError(f"A call of the \"{func.__name__}\" function in \"{{areaName}}\"'s requirement, asks for a value for its argument \"{parameter.name}\" but it's missing.")
+                    else:
+                        raise ConvertReqFunctionArgsError(f"A call of the \"{func.__name__}\" function in \"{{areaName}}\"'s requirement, asks for a value of type {target_type} for its argument \"{parameter.name}\" but it's missing.")
+
+            if target_type == str or parameter.annotation is inspect.Parameter.empty: #Don't convert since its already a string or if we don't know the type to convert to
+                args[index] = value
+                continue
+
+            try:
+                value = convert_string_to_type(value, target_type)
+
+            except Exception as e:
+                raise ConvertReqFunctionArgsError(f"A call of the \"{func.__name__}\" function in \"{{areaName}}\"'s requirement, asks for a value of type {target_type}\nfor its argument \"{parameter.name}\" but its value \"{value}\" cannot be converted to {target_type} \nOriginal Error:'{e}'")
+
+            args[index] = value
+
+    def make_function_collection_rule(self, func: HookFunction, func_args: tuple,
+                                      args_copy_func: Callable[[tuple], list] | None) -> CollectionRule:
+        world = self.world
+        player = self.player
+        multiworld = self.multiworld
+
+        if func in SIMPLE_FUNCTIONS:
+            if args_copy_func is not None:
+                raise RuntimeError(f"Error: Simple function {func} had complex arguments")
+            else:
+                # Small optimization for single argument.
+                if len(func_args) == 0:
+                    func_arg = func_args[0]
+
+                    def collection_rule(state: CollectionState):
+                        return func(world, multiworld, state, player, func_arg)
+                else:
+                    def collection_rule(state: CollectionState):
+                        return func(world, multiworld, state, player, *func_args)
+        else:
+            if args_copy_func is not None:
+                def collection_rule(state: CollectionState):
+                    result = func(world, multiworld, state, player, *args_copy_func(func_args))
+                    if result is True or result is False:
+                        return result
+                    else:
+                        s = str(result)
+                        return self.runtime_rule_string_to_callable(func, s)(state)
+            else:
+                # Small optimization for single argument.
+                if len(func_args) == 0:
+                    func_arg = func_args[0]
+
+                    def collection_rule(state: CollectionState):
+                        result = func(world, multiworld, state, player, func_arg)
+                        if result is True or result is False:
+                            return result
+                        else:
+                            s = str(result)
+                            return self.runtime_rule_string_to_callable(func, s)(state)
+                else:
+                    def collection_rule(state: CollectionState):
+                        result = func(world, multiworld, state, player, *func_args)
+                        if result is True or result is False:
+                            return result
+                        else:
+                            s = str(result)
+                            return self.runtime_rule_string_to_callable(func, s)(state)
+        return collection_rule
+
+    def _get_function_from_item(self, item: tuple[str, str]) -> tuple[str, CollectionRule]:
+        func_name = item[0]
+        func_args = item[1].split(",")
+        if func_args == ['']:
+            func_args.pop()
+
+        func = globals().get(func_name)
+
+        if func is None:
+            func = getattr(Rules, func_name, None)
+
+        if not callable(func):
+            raise InvalidFunctionError(func_name)
+
+        RuleBuilder.convert_req_function_args(func, func_args)
+
+        # dict, set and list arguments are mutable and `func` could mutate them, so mutable arguments need to be
+        # identified and copied before they get passed to `func()`.
+        copy_args = []
+        deep_copy_args = []
+        for i, arg in enumerate(func_args):
+            if isinstance(arg, dict):
+                # dict keys should be immutable, but dict values can be mutable
+                for v in arg.values():
+                    if isinstance(v, (dict, list, set)):
+                        deep_copy_args.append(i)
+                        break
+                else:
+                    # All values in the dict are immutable, so a simple .copy() call is all that is needed.
+                    copy_args.append(i)
+            elif isinstance(arg, list):
+                for v in arg:
+                    if isinstance(v, (dict, list, set)):
+                        deep_copy_args.append(i)
+                        break
+                else:
+                    # All values in the list are immutable, so a simple .copy() call is all that is needed.
+                    copy_args.append(i)
+            elif isinstance(arg, set):
+                # A set should only contain immutable values, so there is never a need to deep copy a set.
+                copy_args.append(i)
+
+        # todo: Instead of copying, create 'constructor' functions for the arguments that can be called to create a new
+        #  copy of the argument when the argument is mutable.
+
+        # Determine the appropriate function to copy every mutable argument.
+        if copy_args:
+            if deep_copy_args:
+                def args_copy_func(args: tuple) -> list:
+                    args_list = list(args)
+                    for j in copy_args:
+                        args_list[j] = args[j].copy()
+                    for j in deep_copy_args:
+                        args_list[j] = deepcopy(args[j])
+                    return args_list
+            else:
+                def args_copy_func(args: tuple) -> list:
+                    args_list = list(args)
+                    for j in deep_copy_args:
+                        args_list[j] = args[j].copy()
+                    return args_list
+        else:
+            if deep_copy_args:
+                def args_copy_func(args: tuple) -> list:
+                    args_list = list(args)
+                    for j in deep_copy_args:
+                        args_list[j] = deepcopy(args[j])
+                    return args_list
+            else:
+                args_copy_func = None
+
+        rule = self.make_function_collection_rule(func, tuple(func_args), args_copy_func)
+        return func_name, rule
+
+    def requires_string_to_ast(self, area: dict | tuple[HookFunction, tuple], requires_list: str
+                               ) -> tuple[ast.BoolOp | ast.Call | ast.Constant, dict[str, CollectionRule]]:
+        player = self.player
+
+        # todo?: Check that the count of "{" and "}" in requires_list is the same?
+
+        # Replace each hook function call with "}" as a placeholder for the CollectionRule for that hook function.
+        function_collection_rules = []
+        for item in re.findall(r'\{(\w+)\((.*?)\)\}', requires_list):
+            try:
+                func_name, rule = self.get_function_from_item(item)
+            except InvalidFunctionError as ife:
+                if isinstance(area, dict):
+                    area_type = "region" if area.get("is_region", False) else "location"
+                    area_name = area.get("name", f"unknown with these parameters: {area}")
+                else:
+                    area_type = "hook function"
+                    area_name = getattr(area[0], "__name__", "unknown") + f"{area[1]}"
+                raise ValueError(f'Invalid function "{ife.func_name}" in {area_type} "{area_name}".')
+            except ConvertReqFunctionArgsError as crfae:
+                if isinstance(area, dict):
+                    area_name = area.get("name", f"unknown with these parameters: {area}")
+                else:
+                    area_name = getattr(area[0], "__name__", "unknown") + f"{area[1]}"
+                raise Exception(crfae.exception_format_str.format(areaName=area_name))
+            function_collection_rules.append(rule)
+            # todo: Is there a different character we can use? Can we instead iterate the rule like the function that
+            #  builds the ast nodes from the simplified rule?
+            # Replace the found function with a single closing curly brace.
+            requires_list = requires_list.replace(f"{{{func_name}({item[1]})}}", "}", 1)
+
+        if "{" in requires_list:
+            # All functions should have been evaluated by this point. If there are any opening curly braces remaining,
+            # then there is a syntax error in the requires string.
+            raise construct_logic_error(area, LogicErrorSource.EVALUATE_STACK_SIZE)
+
+        # Once the rule is created, it will be cached under the original requires list string.
+        original_requires_list = requires_list
+
+        item_collection_rules: list[CollectionRule] = []
+
+        # Replace each "|item|" with "{" as a placeholder for the CollectionRule for that item. "{" is a reserved character
+        # for functions in string rules and should not be present in the string by this point. "{" on its own is used
+        # instead of "{}", in order to simplify later parsing code that iterates 1 character at a time.
+        subrule_cache = self.subrule_cache
+        world = self.world
+        for item in re.findall(r'\|[^|]+\|', requires_list):
+            if item in subrule_cache:
+                rule, item_base = subrule_cache[item]
+                item_collection_rules.append(rule)
+                requires_list = requires_list.replace(item_base, "{", 1)
+                continue
+
+            # todo: Put each of these tuples in a list and pass this list through to
+            #  parsed_logic_string_to_ast_lambda_body,
+            #  so that it can try to combine simple chained or/and,
+            #  e.g. |item1| and |item2| and |item3| -> has_all(("item1", "item2", "item3"), player)
+            # New sub-rule.
+            require_type, item_base, item_name, item_count = get_parts_from_item(item)
+
+            if require_type == "category":
+                rule = category_sub_rule(world, player, area, item_name, item_count)
+                subrule_cache[item] = rule, item_base
+                if rule is _always:
+                    requires_list = requires_list.replace(item_base, "1", 1)
+                else:
+                    item_collection_rules.append(rule)
+                    requires_list = requires_list.replace(item_base, "{", 1)
+            elif require_type == 'item':
+                rule = item_sub_rule(world, player, area, item_name, item_count)
+                subrule_cache[item] = rule, item_base
+                if rule is _always:
+                    requires_list = requires_list.replace(item_base, "1", 1)
+                else:
+                    item_collection_rules.append(rule)
+                    requires_list = requires_list.replace(item_base, "{", 1)
+            else:
+                # Should never happen because get_parts_from_item() defaults to 'item'
+                raise RuntimeError(f"Unexpected require_type: '{require_type}'")
+
+        if "|" in requires_list:
+            # All "|<item/category[:count]>|" items should have been replaced with string 'replacement fields' ("{}"). If
+            # there are any pipes ("|") remaining, then there is a syntax error in the requires string.
+            raise construct_logic_error(area, LogicErrorSource.EVALUATE_POSTFIX)
+
+        # Attempt to auto-fix missing open/close parentheses and warn when they are found.
+        open_count = requires_list.count("(")
+        close_count = requires_list.count(")")
+        open_close_difference = open_count - close_count
+        if open_close_difference > 0:
+            requires_list = requires_list + (")" * open_close_difference)
+            import warnings
+            warnings.warn(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
+                          f" {world.game}. Warning: {open_close_difference} missing close parentheses have been added"
+                          f" automatically to the end.")
+        elif open_close_difference < 0:
+            requires_list = ("(" * (-open_close_difference)) + requires_list
+            import warnings
+            warnings.warn(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
+                          f" {world.game}. Warning: {-open_close_difference} missing open parentheses have been added"
+                          f" automatically to the start.")
+
+        if "!" in requires_list:
+            # Manual supported logical negation at one point. This was dangerous because it enables users to easily create
+            # invalid logic by mistake, where gaining an item would reduce accessibility. Archipelago strictly requires that
+            # gaining an item only ever increases accessibility or keeps accessibility the same.
+            raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
+                            f" {world.game}. Error: Rule contains negation ('!'). If you need to check for a yaml option"
+                            f" being disabled, use YamlDisabled instead.")
+
+        # If everything is boolean logic and/or constants, and either there are no "0"s or no "1"s, then it is easy to
+        # deduce the result.
+        if not item_collection_rules and not function_collection_rules:
+            if "1" not in requires_list:
+                # Must evaluate to False because there is only zeroes
+                return ast.Constant(False), {}
+            if "0" not in requires_list:
+                # Must evaluate to True because there is only ones
+                return ast.Constant(True), {}
+
+        # "and"/"AND" with word boundaries and optional singular whitespace on either side -> "&"
+        requires_list = re.sub(r'\s?\bAND\b\s?', '&', requires_list, 0, re.IGNORECASE)
+        # "or"/"OR" with word boundaries and optional singular whitespace on either side -> "|"
+        requires_list = re.sub(r'\s?\bOR\b\s?', '|', requires_list, 0, re.IGNORECASE)
+
+        # Ensure the characters in the string have been reduced to only what is allowed/expected ("&|(){10").
+        # & and | are boolean logic.
+        # ( and ) are any parentheses in place from the original rule.
+        # { signifies a CollectionRule in item_collection_rules.
+        # 1 and 0 can come from pre-resolved functions, and 0 can come from a potentially invalid rule.
+        used_characters = set(requires_list)
+        if used_characters | ALLOWED_PARSED_RULE_CHARACTERS != ALLOWED_PARSED_RULE_CHARACTERS:
+            bad_characters = used_characters - ALLOWED_PARSED_RULE_CHARACTERS
+            raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
+                            f" {world.game}. Error: Found unexpected characters after parsing: {bad_characters}.")
+
+        # The item CollectionRules are identified by the order they are found in the rule, from left to right.
+        item_collection_rule_names = [f"f{i}" for i in range(len(item_collection_rules))]
+        # Reverse the list to create a new list that can be popped like a stack, where the first element popped is the first
+        # element in `item_collection_rule_names`.
+        item_collection_rule_names_stack = item_collection_rule_names[::-1]
+
+        function_collection_rule_names = [f"f{i}" for i in range(len(function_collection_rules) + len(item_collection_rules), + len(item_collection_rules))]
+        function_collection_rule_names_stack = function_collection_rule_names[::-1]
+
+        # Further parse the parsed logic string into ast nodes.
+        parsed_ast = parsed_logic_string_to_ast_lambda_body(requires_list, item_collection_rule_names_stack, function_collection_rule_names_stack)
+
+        # If the resulting ast node is not a Constant, then it must be either a BoolOp or a Call.
+        assert isinstance(parsed_ast, (ast.BoolOp, ast.Call, ast.Constant))
+
+        # The item_collection_rules are referenced by name within `parsed_ast`. Some may have been removed from `parsed_ast`
+        # by optimizations, so will be unused in that case.
+        args = dict(zip(
+            item_collection_rule_names + function_collection_rule_names,
+            item_collection_rules + function_collection_rules,
+            strict=True))
+
+        return parsed_ast, args
+
+    def static_rule_string_to_callable(self, area: dict, requires_list: str) -> CollectionRule:
+        """Fully cached evaluation of static string rules as defined in locations.json."""
+        rule_cache = self.rule_cache
+        if requires_list in rule_cache:
+            return rule_cache[requires_list]
+
+        parsed_ast, args = self.requires_string_to_ast(area, requires_list)
+
+        rule = RuleBuilder.create_collection_rule_from_ast(requires_list, parsed_ast, args)
+
+        # Store the CollectionRule into the cache.
+        rule_cache[requires_list] = rule
+        return rule
+
+    def runtime_rule_string_to_callable(self, area: dict | HookFunction, requires_list: str) -> CollectionRule:
+        """Runtime evaluation of string rules returned by hook functions."""
+        if requires_list in self.rule_cache:
+            # The runtime rule already exists as part of the static rules, so return the static rule.
+            return self.rule_cache[requires_list]
+
+        if requires_list in self.runtime_rule_cache:
+            # The runtime rule has already been created and cached. Get the rule and move it to the end.
+            self.runtime_rule_cache.move_to_end(requires_list)
+            return self.runtime_rule_cache[requires_list]
+
+        parsed_ast, args = self.requires_string_to_ast(area, requires_list)
+
+        rule = RuleBuilder.create_collection_rule_from_ast(requires_list, parsed_ast, args)
+
+        if len(self.runtime_rule_cache) >= RuleBuilder.max_runtime_rule_cache_size:
+            # Pop the item at the front (least recently used)
+            self.runtime_rule_cache.popitem(False)
+
+        # Add the new rule. The key is not already present, so the item will go to the end of the dict.
+        self.runtime_rule_cache[requires_list] = rule
+
+        return rule
+
+
+class InvalidFunctionError(RuntimeError):
+    """Raised when a parsed function is not valid. Often because there is no function found with the specified name."""
+
+    func_name: str
+
+    def __init__(self, func_name: str, *args):
+        super().__init__(*args)
+        self.func_name = func_name
+
+
+class ConvertReqFunctionArgsError(RuntimeError):
+    """Raised when the parsed arguments for a function do not match the function's signature."""
+    exception_format_str: str
+    """String to be formatted with `areaName` as a parameter"""
+
+    def __init__(self, exception_format_str: str, *args):
+        super().__init__(*args)
+        self.exception_format_str = exception_format_str
+
+
+ALLOWED_PARSED_RULE_CHARACTERS = frozenset("&|(){}10")
+
+
+def parsed_logic_string_to_ast_lambda_body(parsed_logic_string: str, collection_rule_name_stack: list[str],
+                                           function_collection_rule_names_stack: list[str]):
     """
     Manual logic treats "and" and "or" as having the same precedence, so both are evaluated from left-to-right.
 
@@ -77,13 +530,21 @@ def parsed_logic_string_to_ast_lambda_body(parsed_logic_string: str, collection_
             # Get everything inside the parentheses.
             parenthesized_operand = parsed_logic_string[char_index + 1:char_index2]
             # Recursively convert the parenthesized contents to ast nodes.
-            right_operand = parsed_logic_string_to_ast_lambda_body(parenthesized_operand, collection_rule_name_stack)
+            right_operand = parsed_logic_string_to_ast_lambda_body(parenthesized_operand,
+                                                                   collection_rule_name_stack,
+                                                                   function_collection_rule_names_stack)
         elif char == ")":
             raise RuntimeError("Error: Missing opening parenthesis")
         elif char == "{":
             # Get the name of the collection rule and construct a Call node to call the collection rule with a "state"
             # argument.
             func_name = collection_rule_name_stack.pop()
+            func_args = [ast.Name(id="state", ctx=ast.Load())]
+            right_operand = ast.Call(func=ast.Name(id=func_name, ctx=ast.Load()), args=func_args)
+        elif char == "}":
+            # Get the name of the collection rule and construct a Call node to call the collection rule with a "state"
+            # argument.
+            func_name = function_collection_rule_names_stack.pop()
             func_args = [ast.Name(id="state", ctx=ast.Load())]
             right_operand = ast.Call(func=ast.Name(id=func_name, ctx=ast.Load()), args=func_args)
         elif char == "&":
@@ -235,6 +696,10 @@ def category_sub_rule(world: "ManualWorld", player: int, area: dict, item_name: 
         except ValueError as e:
             raise ValueError(f"Invalid item count `{item_name}` in {area}.") from e
 
+        # todo: It would be preferable if the rule could be replaced entirely, maybe to "1" (True).
+        if required_count == 0:
+            return _always
+
         def has_category_count(state: CollectionState):
             return state.has_from_list(category_item_names, player, required_count)
 
@@ -270,227 +735,26 @@ def item_sub_rule(world: "ManualWorld", player: int, area: dict, item_name: str,
         except ValueError as e:
             raise ValueError(f"Invalid item count `{item_name}` in {area}.") from e
 
+        # todo: It would be preferable if the rule could be replaced entirely, maybe to "1" (True).
+        if required_item_count == 0:
+            return _always
+
         def has_item_count(state: CollectionState):
             return state.has(item_name, player, required_item_count)
     return has_item_count
 
 
-# noinspection PyUnusedLocal
-def _always(state: CollectionState):
-    """Function used in place of `lambda state: True` to reduce the number of lambdas created."""
-    return True
-
-
-# noinspection PyUnusedLocal
-def _never(state: CollectionState):
-    """Function used in place of `lambda state: False` to reduce the number of lambdas created."""
-    return False
-
-
-def requires_string_to_callable(world: "ManualWorld", area: dict, requires_list: str,
-                                rule_cache: dict[str, CollectionRule],
-                                subrule_cache: dict[str, tuple[CollectionRule, str]]) -> CollectionRule:
-    player = world.player
-
-    if requires_list in rule_cache:
-        return rule_cache[requires_list]
-
-    if "{" in requires_list or "}" in requires_list:
-        # All functions should have been evaluated by this point. If there are any curly braces remaining, then there is
-        # a syntax error in the requires string.
-        raise construct_logic_error(area, LogicErrorSource.EVALUATE_STACK_SIZE)
-
-    # Once the rule is created, it will be cached under the original requires list string.
-    original_requires_list = requires_list
-
-    item_collection_rules: list[CollectionRule] = []
-
-    # Replace each "|item|" with "{" as a placeholder for the CollectionRule for that item. "{" is a reserved character
-    # for functions in string rules and should not be present in the string by this point. "{" on its own is used
-    # instead of "{}", in order to simplify later parsing code that iterates 1 character at a time.
-    for item in re.findall(r'\|[^|]+\|', requires_list):
-        if item in subrule_cache:
-            rule, item_base = subrule_cache[item]
-            item_collection_rules.append(rule)
-            requires_list = requires_list.replace(item_base, "{", 1)
-            continue
-
-        # New sub-rule.
-        require_type, item_base, item_name, item_count = get_parts_from_item(item)
-
-        if require_type == "category":
-            rule = category_sub_rule(world, player, area, item_name, item_count)
-            item_collection_rules.append(rule)
-            subrule_cache[item] = rule, item_base
-            requires_list = requires_list.replace(item_base, "{", 1)
-        elif require_type == 'item':
-            rule = item_sub_rule(world, player, area, item_name, item_count)
-            item_collection_rules.append(rule)
-            subrule_cache[item] = rule, item_base
-            requires_list = requires_list.replace(item_base, "{", 1)
-        else:
-            # Should never happen because get_parts_from_item() defaults to 'item'
-            raise RuntimeError(f"Unexpected require_type: '{require_type}'")
-
-    if "|" in requires_list:
-        # All "|<item/category[:count]>|" items should have been replaced with string 'replacement fields' ("{}"). If
-        # there are any pipes ("|") remaining, then there is a syntax error in the requires string.
-        raise construct_logic_error(area, LogicErrorSource.EVALUATE_POSTFIX)
-
-    # Attempt to auto-fix missing open/close parentheses and warn when they are found.
-    open_count = requires_list.count("(")
-    close_count = requires_list.count(")")
-    open_close_difference = open_count - close_count
-    if open_close_difference > 0:
-        requires_list = requires_list + (")" * open_close_difference)
-        import warnings
-        warnings.warn(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
-                      f" {world.game}. Warning: {open_close_difference} missing close parentheses have been added"
-                      f" automatically to the end.")
-    elif open_close_difference < 0:
-        requires_list = ("(" * (-open_close_difference)) + requires_list
-        import warnings
-        warnings.warn(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
-                      f" {world.game}. Warning: {-open_close_difference} missing open parentheses have been added"
-                      f" automatically to the start.")
-
-    if "!" in requires_list:
-        # Manual supported logical negation at one point. This was dangerous because it enables users to easily create
-        # invalid logic by mistake, where gaining an item would reduce accessibility. Archipelago strictly requires that
-        # gaining an item only ever increases accessibility or keeps accessibility the same.
-        raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
-                        f" {world.game}. Error: Rule contains negation ('!'). If you need to check for a yaml option"
-                        f" being disabled, use YamlDisabled instead.")
-
-    # If everything is boolean logic and/or constants, and either there are no "0"s or no "1"s, then it is easy to
-    # deduce the result.
-    if not item_collection_rules:
-        if "1" not in requires_list:
-            # Must evaluate to False because there is only zeroes
-            rule_cache[original_requires_list] = _never
-            return _never
-        if "0" not in requires_list:
-            # Must evaluate to True because there is only ones
-            rule_cache[original_requires_list] = _always
-            return _always
-
-    # "and"/"AND" with word boundaries and optional singular whitespace on either side -> "&"
-    requires_list = re.sub(r'\s?\bAND\b\s?', '&', requires_list, 0, re.IGNORECASE)
-    # "or"/"OR" with word boundaries and optional singular whitespace on either side -> "|"
-    requires_list = re.sub(r'\s?\bOR\b\s?', '|', requires_list, 0, re.IGNORECASE)
-
-    # Ensure the characters in the string have been reduced to only what is allowed/expected ("&|(){10").
-    # & and | are boolean logic.
-    # ( and ) are any parentheses in place from the original rule.
-    # { signifies a CollectionRule in item_collection_rules.
-    # 1 and 0 can come from pre-resolved functions, and 0 can come from a potentially invalid rule.
-    used_characters = set(requires_list)
-    if used_characters | ALLOWED_PARSED_RULE_CHARACTERS != ALLOWED_PARSED_RULE_CHARACTERS:
-        bad_characters = used_characters - ALLOWED_PARSED_RULE_CHARACTERS
-        raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
-                        f" {world.game}. Error: Found unexpected characters after parsing: {bad_characters}.")
-
-    # The item CollectionRules are identified by the order they are found in the rule, from left to right.
-    item_collection_rule_names = [f"f{i}" for i in range(len(item_collection_rules))]
-    # Reverse the list to create a new list that can be popped like a stack, where the first element popped is the first
-    # element in `item_collection_rule_names`.
-    item_collection_rule_names_stack = item_collection_rule_names[::-1]
-
-    # Further parse the parsed logic string into ast nodes.
-    parsed_ast = parsed_logic_string_to_ast_lambda_body(requires_list, item_collection_rule_names_stack)
-
-    if isinstance(parsed_ast, ast.Constant):
-        # The requires string was reduced to a constant by optimisations, e.g. "1 and 0" -> False.
-        literal_value = parsed_ast.value
-        if literal_value is True:
-            rule_cache[original_requires_list] = _always
-            return _always
-        elif literal_value is False:
-            rule_cache[original_requires_list] = _never
-            return _never
-        else:
-            raise RuntimeError(f"Unexpected literal evaluation of {requires_list} as\n{ast.dump(parsed_ast, indent=4)}"
-                               f"\ninto {literal_value!r}")
-
-    # If the resulting ast node is not a Constant, then it must be either a BoolOp or a Call.
-    assert isinstance(parsed_ast, (ast.BoolOp, ast.Call))
-
-    # Create an expression that evaluates to `lambda state: <parsed_ast>`, compatible with CollectionRule typing.
-    ast_lambda = ast.Lambda(args=ast.arguments(args=[ast.arg(arg="state")]), body=parsed_ast)
-    expr = ast.Expression(body=ast_lambda)
-
-    # The item_collection_rules are referenced by name within `parsed_ast`. Some may have been removed from `parsed_ast`
-    # by optimizations, so will be unused in that case.
-    args = dict(zip(item_collection_rule_names, item_collection_rules, strict=True))
-
-    # Compile the ast Expression node into a <code> object and then evaluate it to create the lambda.
-    rule_func: CollectionRule = eval(compile(ast.fix_missing_locations(expr), "<string>", "eval"), args)
-
-    # Store the CollectionRule lambda into the cache.
-    rule_cache[original_requires_list] = rule_func
-    return rule_func
-
-
 def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
-    rule_cache: dict[str, CollectionRule] = {}
-    subrule_cache: dict[str, tuple[CollectionRule, str]] = {}
+    rule_builder = RuleBuilder(world)
 
     # this is only called when the area (think, location or region) has a "requires" field that is a string
     def checkRequireStringForArea(state: CollectionState, area: dict):
         requires_list = area["requires"]
 
-        # Get the "real" item counts of item in the pool/placed/starting_items
-        items_counts = world.get_item_counts(player)
-
-        # Preparing some variables for exception messages
-        area_type = "region" if area.get("is_region",False) else "location"
-        area_name = area.get("name", f"unknown with these parameters: {area}")
-
         if requires_list == "":
             return True
 
-        def findAndRecursivelyExecuteFunctions(requires_list: str, recursionDepth: int = 0) -> str:
-            found_functions = re.findall(r'\{(\w+)\((.*?)\)\}', requires_list)
-            if found_functions:
-                if recursionDepth > world.rules_functions_maximum_recursion:
-                    raise RecursionError(f'One or more functions in {area_type} "{area_name}"\'s requires looped too many time (maximum recursion is {world.rules_functions_maximum_recursion}) \
-                                         \n    As of this Exception the following function(s) are waiting to run: {[f[0] for f in found_functions]} \
-                                         \n    And the currently processed requires look like this: "{requires_list}"')
-                else:
-                    for item in found_functions:
-                        func_name = item[0]
-                        func_args = item[1].split(",")
-                        if func_args == ['']:
-                            func_args.pop()
-
-                        func = globals().get(func_name)
-
-                        if func is None:
-                            func = getattr(Rules, func_name, None)
-
-                        if not callable(func):
-                            raise ValueError(f'Invalid function "{func_name}" in {area_type} "{area_name}".')
-
-                        convert_req_function_args(func, func_args, area_name)
-                        try:
-                            result = func(world, multiworld, state, player, *func_args)
-                        except Exception as ex:
-                            raise RuntimeError(f'A call to the function "{func_name}" in {area_type} "{area_name}"\'s requires raised an Exception. \
-                                                \nUnless it was called by another function, it should look something like "{{{func_name}({item[1]})}}" in {area_type}s.json. \
-                                                \nFull error message: \
-                                                \n\n{type(ex).__name__}: {ex}')
-                        if isinstance(result, bool):
-                            requires_list = requires_list.replace("{" + func_name + "(" + item[1] + ")}", "1" if result else "0")
-                        else:
-                            requires_list = requires_list.replace("{" + func_name + "(" + item[1] + ")}", str(result))
-
-                requires_list = findAndRecursivelyExecuteFunctions(requires_list, recursionDepth + 1)
-            return requires_list
-
-        requires_list = findAndRecursivelyExecuteFunctions(requires_list)
-
-        # The requires_list is now reduced to only item checks and can be converted into a callable.
-        func = requires_string_to_callable(world, area, requires_list, rule_cache, subrule_cache)
+        func = rule_builder.static_rule_string_to_callable(area, requires_list)
         return func(state)
 
     # this is only called when the area (think, location or region) has a "requires" field that is a dict
@@ -607,43 +871,8 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
     # Victory requirement
     multiworld.completion_condition[player] = lambda state: state.has("__Victory__", player)
 
-    def convert_req_function_args(func, args: list[str], areaName: str):
-        parameters = inspect.signature(func).parameters
-        knownParameters = ["world", "multiworld", "state", "player"]
-        index = -1
-        for parameter in parameters.values():
-            if parameter.name in knownParameters:
-                continue
-            index += 1
-            target_type = parameter.annotation
 
-            if index < len(args) and args[index] != "":
-                value = args[index].strip()
-            else:
-                if parameter.default is not inspect.Parameter.empty:
-                    if index < len(args):
-                        args[index] = parameter.default
-                    continue
-                else:
-                    if parameter.annotation is inspect.Parameter.empty:
-                        raise Exception(f"A call of the \"{func.__name__}\" function in \"{areaName}\"'s requirement, asks for a value for its argument \"{parameter.name}\" but it's missing.")
-                    else:
-                        raise Exception(f"A call of the \"{func.__name__}\" function in \"{areaName}\"'s requirement, asks for a value of type {target_type} for its argument \"{parameter.name}\" but it's missing.")
-
-            if target_type == str or parameter.annotation is inspect.Parameter.empty: #Don't convert since its already a string or if we don't know the type to convert to
-                args[index] = value
-                continue
-
-            try:
-                value = convert_string_to_type(value, target_type)
-
-            except Exception as e:
-                raise Exception(f"A call of the \"{func.__name__}\" function in \"{areaName}\"'s requirement, asks for a value of type {target_type}\nfor its argument \"{parameter.name}\" but its value \"{value}\" cannot be converted to {target_type} \nOriginal Error:'{e}'")
-
-            args[index] = value
-
-
-def ItemValue(world: World, multiworld: MultiWorld, state: CollectionState, player: int, valueCount: str, skipCache: bool = False):
+def ItemValue(world: World, multiworld: MultiWorld, state: CollectionState, player: int, valueCount: str, skipCache: bool = False) -> bool:
     """When passed a string with this format: 'valueName:int',
     this function will check if the player has collect at least 'int' valueName worth of items\n
     eg. {ItemValue(Coins:12)} will check if the player has collect at least 12 coins worth of items\n
@@ -711,6 +940,7 @@ def OptOne(world: World, multiworld: MultiWorld, state: CollectionState, player:
         item_name = item_parts[0]
         item_count = item_parts[1]
 
+    # todo: If item_count is 0, return "1" or "" because the result is always True, or just return `True`?
     if require_type == 'category':
         if item_count.isnumeric():
             #Only loop if we can use the result to clamp
@@ -765,3 +995,6 @@ def YamlEnabled(world: "ManualWorld", multiworld: MultiWorld, state: CollectionS
 def YamlDisabled(world: "ManualWorld", multiworld: MultiWorld, state: CollectionState, player: int, param: str) -> bool:
     """Is a yaml option disabled?"""
     return not is_option_enabled(multiworld, player, param)
+
+
+SIMPLE_FUNCTIONS: frozenset[Callable] = frozenset({ItemValue, canReachLocation, YamlEnabled, YamlDisabled})
