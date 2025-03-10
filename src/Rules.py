@@ -283,6 +283,9 @@ class RuleBuilder:
                                ) -> tuple[ast.BoolOp | ast.Call | ast.Constant, dict[str, CollectionRule]]:
         player = self.player
 
+        # Once the rule is created, it will be cached under the original requires list string.
+        original_requires_list = requires_list
+
         # todo?: Check that the count of "{" and "}" in requires_list is the same?
 
         # Replace each hook function call with "}" as a placeholder for the CollectionRule for that hook function.
@@ -314,9 +317,6 @@ class RuleBuilder:
             # All functions should have been evaluated by this point. If there are any opening curly braces remaining,
             # then there is a syntax error in the requires string.
             raise construct_logic_error(area, LogicErrorSource.EVALUATE_STACK_SIZE)
-
-        # Once the rule is created, it will be cached under the original requires list string.
-        original_requires_list = requires_list
 
         item_collection_rules: list[CollectionRule] = []
 
@@ -403,11 +403,14 @@ class RuleBuilder:
         requires_list = re.sub(r'\s?\bAND\b\s?', '&', requires_list, 0, re.IGNORECASE)
         # "or"/"OR" with word boundaries and optional singular whitespace on either side -> "|"
         requires_list = re.sub(r'\s?\bOR\b\s?', '|', requires_list, 0, re.IGNORECASE)
+        # Remove any remaining whitespace.
+        requires_list = re.sub(r"\s+", "", requires_list)
 
-        # Ensure the characters in the string have been reduced to only what is allowed/expected ("&|(){10").
+        # Ensure the characters in the string have been reduced to only what is allowed/expected ("&|(){}10").
         # & and | are boolean logic.
         # ( and ) are any parentheses in place from the original rule.
         # { signifies a CollectionRule in item_collection_rules.
+        # } signifies a CollectionRule in function_collection_rules.
         # 1 and 0 can come from pre-resolved functions, and 0 can come from a potentially invalid rule.
         used_characters = set(requires_list)
         if used_characters | ALLOWED_PARSED_RULE_CHARACTERS != ALLOWED_PARSED_RULE_CHARACTERS:
@@ -421,7 +424,10 @@ class RuleBuilder:
         # element in `item_collection_rule_names`.
         item_collection_rule_names_stack = item_collection_rule_names[::-1]
 
-        function_collection_rule_names = [f"f{i}" for i in range(len(function_collection_rules) + len(item_collection_rules), + len(item_collection_rules))]
+        # Start the function CollectionRule names from the next number after the last item CollectionRule name.
+        start = len(item_collection_rules)
+        end = len(function_collection_rules) + len(item_collection_rules)
+        function_collection_rule_names = [f"f{i}" for i in range(start, end)]
         function_collection_rule_names_stack = function_collection_rule_names[::-1]
 
         # Further parse the parsed logic string into ast nodes.
