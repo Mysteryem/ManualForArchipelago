@@ -11,6 +11,7 @@ from .hooks import Rules
 from .Helpers import clamp, is_item_enabled, get_items_with_value, is_option_enabled, get_option_value, convert_string_to_type, format_to_valid_identifier
 
 from BaseClasses import MultiWorld, CollectionState
+from Utils import cache_self1
 from worlds.AutoWorld import World
 from worlds.generic.Rules import set_rule, add_rule, CollectionRule
 from Options import Choice, Toggle, Range, NamedRange
@@ -80,8 +81,6 @@ class RuleBuilder:
     # Least Recently Used cache of runtime evaluated string rules, as returned from hook functions.
     runtime_rule_cache: OrderedDict[str, CollectionRule]
 
-    get_function_from_item: Callable[[tuple[str, str]], tuple[str, CollectionRule]]
-
     def __init__(self, world: "ManualWorld"):
         self.world = world
         self.multiworld = world.multiworld
@@ -90,9 +89,6 @@ class RuleBuilder:
         self.rule_cache = {}
         self.subrule_cache = {}
         self.runtime_rule_cache = OrderedDict()
-
-        # Caching is done per instance, rather than being shared by each instance.
-        self.get_function_from_item = lru_cache(RuleBuilder.max_runtime_rule_cache_size)(self._get_function_from_item)
 
     @staticmethod
     def create_collection_rule_from_ast(original_rule_string: str,
@@ -205,7 +201,8 @@ class RuleBuilder:
                             return self.runtime_rule_string_to_callable(func, s)(state)
         return collection_rule
 
-    def _get_function_from_item(self, item: tuple[str, str]) -> tuple[str, CollectionRule]:
+    @cache_self1
+    def get_function_from_item(self, item: tuple[str, str]) -> tuple[str, CollectionRule]:
         func_name = item[0]
         func_args = item[1].split(",")
         if func_args == ['']:
