@@ -320,9 +320,7 @@ class RuleBuilder:
 
         item_collection_rules: list[CollectionRule] = []
 
-        # Replace each "|item|" with "{" as a placeholder for the CollectionRule for that item. "{" is a reserved character
-        # for functions in string rules and should not be present in the string by this point. "{" on its own is used
-        # instead of "{}", in order to simplify later parsing code that iterates 1 character at a time.
+        # Replace each "|item|" with "{" as a placeholder for the CollectionRule for that item.
         subrule_cache = self.subrule_cache
         world = self.world
         for item in re.findall(r'\|[^|]+\|', requires_list):
@@ -360,8 +358,8 @@ class RuleBuilder:
                 raise RuntimeError(f"Unexpected require_type: '{require_type}'")
 
         if "|" in requires_list:
-            # All "|<item/category[:count]>|" items should have been replaced with string 'replacement fields' ("{}"). If
-            # there are any pipes ("|") remaining, then there is a syntax error in the requires string.
+            # All "|<item/category[:count]>|" items should have been replaced with string 'replacement fields' ("{}").
+            # If there are any pipes ("|") remaining, then there is a syntax error in the requires string.
             raise construct_logic_error(area, LogicErrorSource.EVALUATE_POSTFIX)
 
         # Attempt to auto-fix missing open/close parentheses and warn when they are found.
@@ -382,12 +380,12 @@ class RuleBuilder:
                           f" automatically to the start.")
 
         if "!" in requires_list:
-            # Manual supported logical negation at one point. This was dangerous because it enables users to easily create
-            # invalid logic by mistake, where gaining an item would reduce accessibility. Archipelago strictly requires that
-            # gaining an item only ever increases accessibility or keeps accessibility the same.
-            raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
-                            f" {world.game}. Error: Rule contains negation ('!'). If you need to check for a yaml option"
-                            f" being disabled, use YamlDisabled instead.")
+            # Manual supported logical negation at one point. This was dangerous because it enables users to easily
+            # create invalid logic by mistake, where gaining an item would reduce accessibility. Archipelago strictly
+            # requires that gaining an item only ever increases accessibility or keeps accessibility the same.
+            raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with"
+                            f" game {world.game}. Error: Rule contains negation ('!'). If you need to check for a yaml"
+                            f" option being disabled, use YamlDisabled instead.")
 
         # If everything is boolean logic and/or constants, and either there are no "0"s or no "1"s, then it is easy to
         # deduce the result.
@@ -415,13 +413,14 @@ class RuleBuilder:
         used_characters = set(requires_list)
         if used_characters | ALLOWED_PARSED_RULE_CHARACTERS != ALLOWED_PARSED_RULE_CHARACTERS:
             bad_characters = used_characters - ALLOWED_PARSED_RULE_CHARACTERS
-            raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with game"
-                            f" {world.game}. Error: Found unexpected characters after parsing: {bad_characters}.")
+            raise Exception(f"Invalid rule '{original_requires_list}' for {area} for player {world.player_name} with"
+                            f" game {world.game}. Error: Found unexpected characters after parsing: {bad_characters} in"
+                            f" '{requires_list}'.")
 
         # The item CollectionRules are identified by the order they are found in the rule, from left to right.
         item_collection_rule_names = [f"f{i}" for i in range(len(item_collection_rules))]
-        # Reverse the list to create a new list that can be popped like a stack, where the first element popped is the first
-        # element in `item_collection_rule_names`.
+        # Reverse the list to create a new list that can be popped like a stack, where the first element popped is the
+        # first element in `item_collection_rule_names`.
         item_collection_rule_names_stack = item_collection_rule_names[::-1]
 
         # Start the function CollectionRule names from the next number after the last item CollectionRule name.
@@ -431,13 +430,17 @@ class RuleBuilder:
         function_collection_rule_names_stack = function_collection_rule_names[::-1]
 
         # Further parse the parsed logic string into ast nodes.
-        parsed_ast = parsed_logic_string_to_ast_lambda_body(requires_list, item_collection_rule_names_stack, function_collection_rule_names_stack)
+        parsed_ast = parsed_logic_string_to_ast_lambda_body(requires_list,
+                                                            item_collection_rule_names_stack,
+                                                            function_collection_rule_names_stack)
 
-        # If the resulting ast node is not a Constant, then it must be either a BoolOp or a Call.
+        # The resulting ast node should usually be a BoolOp, but can also be a Call if the rule contains a single
+        # function or a Constant (True/False) if the rule had some pre-resolved parts and could be reduced to a
+        # constant, e.g. `<complex rule> or True` can be reduced to `True`.
         assert isinstance(parsed_ast, (ast.BoolOp, ast.Call, ast.Constant))
 
-        # The item_collection_rules are referenced by name within `parsed_ast`. Some may have been removed from `parsed_ast`
-        # by optimizations, so will be unused in that case.
+        # The item_collection_rules are referenced by name within `parsed_ast`. Some may have been removed from
+        # `parsed_ast` by optimizations, so will be unused in that case.
         args = dict(zip(
             item_collection_rule_names + function_collection_rule_names,
             item_collection_rules + function_collection_rules,
