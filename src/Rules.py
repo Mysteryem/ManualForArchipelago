@@ -160,8 +160,11 @@ class RuleBuilder:
             if args_copy_func is not None:
                 raise RuntimeError(f"Error: Simple function {func} had complex arguments")
             else:
-                # Small optimization for single argument.
-                if len(func_args) == 1:
+                num_args = len(func_args)
+                if num_args == 0:
+                    def collection_rule(state: CollectionState):
+                        return func(world, multiworld, state, player)
+                elif num_args == 1:
                     func_arg = func_args[0]
 
                     def collection_rule(state: CollectionState):
@@ -179,8 +182,16 @@ class RuleBuilder:
                         s = str(result)
                         return self.runtime_rule_string_to_callable(func, s)(state)
             else:
-                # Small optimization for single argument.
-                if len(func_args) == 1:
+                num_args = len(func_args)
+                if num_args == 0:
+                    def collection_rule(state: CollectionState):
+                        result = func(world, multiworld, state, player)
+                        if result is True or result is False:
+                            return result
+                        else:
+                            s = str(result)
+                            return self.runtime_rule_string_to_callable(func, s)(state)
+                elif num_args == 1:
                     func_arg = func_args[0]
 
                     def collection_rule(state: CollectionState):
