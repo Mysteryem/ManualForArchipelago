@@ -177,8 +177,7 @@ class RuleBuilder:
                     if result is True or result is False:
                         return result
                     else:
-                        s = str(result)
-                        return self.runtime_rule_string_to_callable(func, s)(state)
+                        return self.runtime_rule_string_to_callable(func, str(result))(state)
             else:
                 num_args = len(func_args)
                 if num_args == 0:
@@ -187,8 +186,7 @@ class RuleBuilder:
                         if result is True or result is False:
                             return result
                         else:
-                            s = str(result)
-                            return self.runtime_rule_string_to_callable(func, s)(state)
+                            return self.runtime_rule_string_to_callable(func, str(result))(state)
                 elif num_args == 1:
                     func_arg = func_args[0]
 
@@ -197,8 +195,7 @@ class RuleBuilder:
                         if result is True or result is False:
                             return result
                         else:
-                            s = str(result)
-                            return self.runtime_rule_string_to_callable(func, s)(state)
+                            return self.runtime_rule_string_to_callable(func, str(result))(state)
                 else:
                     def collection_rule(state: CollectionState):
                         result = func(world, multiworld, state, player, *func_args)
