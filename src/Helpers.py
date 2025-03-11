@@ -1,3 +1,4 @@
+import ast
 import csv
 import os
 import pkgutil
@@ -213,7 +214,7 @@ def format_to_valid_identifier(input: str) -> str:
         input = "_" + input
     return input.replace(" ", "_")
 
-def convert_string_to_type(input: str, target_type: type) -> any:
+def convert_string_to_type(input: str, target_type: type) -> tuple[any, bool]:
     """Take a string and attempt to convert it to {target_type}
     \ntarget_type can be a single type(ex. str), an union (int|str), an Optional type (Optional[str]) or a combo of any of those (Optional[int|str])
     \nSpecial logic:
@@ -221,6 +222,9 @@ def convert_string_to_type(input: str, target_type: type) -> any:
     - When target_type contains bool: it will check if input.lower() is "true", "1", "false" or "0"
     - If bool is the last type in target_type it also run the input directly through bool(input) if previous fails
     \nif you want this to possibly fail without Exceptions include str in target_type, your input should get returned if all the other conversions fails
+    The return type is a tuple where the first element is either the converted value or a function that will create the
+    converted value, and where the second element is a bool that is True when the first element is a function that will
+    create the converted value and False when the first element is the converted value itself.
     """
     def checktype(target_type, found_types: list):
         if issubclass(type(target_type), type): #is it a single type (str, list, etc)
@@ -253,36 +257,50 @@ def convert_string_to_type(input: str, target_type: type) -> any:
         i += 1
         if issubclass(value_type, type(None)):
             if value.lower() == 'none':
-                return None
+                return None, False
             errors.append(str(value_type) + ": value was not 'none'")
 
         elif issubclass(value_type, bool):
             if value.lower() in ['true', '1', 'on']:
-                return True
+                return True, False
 
             elif value.lower() in ['false', '0', 'off']:
-                return False
+                return False, False
 
             else:
                 if i == len(found_types):
-                    return value_type(value) #if its the last type might as well try and convert to bool
+                    return bool(value), False #if its the last type might as well try and convert to bool
                 errors.append(str(value_type) + ": value was not in either ['true', '1', 'on'] or ['false', '0', 'off']")
 
         elif issubclass(value_type, list) or issubclass(value_type, dict) \
             or issubclass(value_type, set) or issubclass(type(value_type), GenericAlias):
             try:
-                converted_value = eval(value)
+                parsed = ast.parse(value, mode="eval")
+                # Call once to check that it does not error, and that it is a literal, so cannot run arbitrary code.
+                converted_value = ast.literal_eval(parsed)
                 compareto = get_origin(value_type) if issubclass(type(value_type), GenericAlias) else value_type
                 if issubclass(compareto, type(converted_value)):
-                    return converted_value
+                    # Compile a lambda that returns the literal. Calling this lambda is several times faster than
+                    # compiling `parsed` and then calling a lambda that does `lambda: eval(compiled_parsed)`, which is
+                    # in turn several times faster than calling `lambda: ast.literal_eval(parsed)`, which is in turn
+                    # several times faster than calling `lambda: ast.literal_eval(value)`.
+                    ast_lambda = ast.Lambda(args=None, body=parsed.body)
+                    expr = ast.Expression(body=ast_lambda)
+                    compiled_lambda = eval(compile(ast.fix_missing_locations(expr), "<string>", "eval"))
+                    return compiled_lambda, True
                 else:
                     errors.append(str(value_type) + f": value '{value}' was not a valid {str(compareto)}")
             except Exception as e:
                 errors.append(str(value_type) + ": " + str(e))
                 continue
         else:
+            if value_type is str:
+                return value, False
+
             try:
-                return value_type(value)
+                # Call once to check that it does not error.
+                value_type(value)
+                return (lambda: value_type(value)), True
 
             except Exception as e:
                 errors.append(str(value_type) + ": " + str(e))
