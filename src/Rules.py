@@ -1,8 +1,6 @@
 import ast
 from collections import OrderedDict
-from copy import deepcopy
-from functools import lru_cache
-from typing import TYPE_CHECKING, Optional, Literal, Union, Callable, ClassVar
+from typing import TYPE_CHECKING, Optional, Literal, Union, Callable, ClassVar, Any
 from enum import IntEnum
 from operator import eq, ge, le
 
@@ -116,10 +114,11 @@ class RuleBuilder:
         return rule_func
 
     @staticmethod
-    def convert_req_function_args(func, args: list[str]):
+    def convert_req_function_args(func, args: list[str]) -> list[tuple[Any, bool]]:
         parameters = inspect.signature(func).parameters
         knownParameters = ["world", "multiworld", "state", "player"]
         index = -1
+        parsed_args = []
         for parameter in parameters.values():
             if parameter.name in knownParameters:
                 continue
@@ -131,7 +130,7 @@ class RuleBuilder:
             else:
                 if parameter.default is not inspect.Parameter.empty:
                     if index < len(args):
-                        args[index] = parameter.default
+                        parsed_args.append((parameter.default, False))
                     continue
                 else:
                     if parameter.annotation is inspect.Parameter.empty:
@@ -140,16 +139,16 @@ class RuleBuilder:
                         raise ConvertReqFunctionArgsError(f"A call of the \"{func.__name__}\" function in \"{{areaName}}\"'s requirement, asks for a value of type {target_type} for its argument \"{parameter.name}\" but it's missing.")
 
             if target_type == str or parameter.annotation is inspect.Parameter.empty: #Don't convert since its already a string or if we don't know the type to convert to
-                args[index] = value
+                parsed_args.append((value, False))
                 continue
 
             try:
-                value = convert_string_to_type(value, target_type)
-
+                arg_tuple = convert_string_to_type(value, target_type)
             except Exception as e:
                 raise ConvertReqFunctionArgsError(f"A call of the \"{func.__name__}\" function in \"{{areaName}}\"'s requirement, asks for a value of type {target_type}\nfor its argument \"{parameter.name}\" but its value \"{value}\" cannot be converted to {target_type} \nOriginal Error:'{e}'")
 
-            args[index] = value
+            parsed_args.append(arg_tuple)
+        return parsed_args
 
     def make_function_collection_rule(self, func: HookFunction, func_args: tuple,
                                       args_copy_func: Callable[[tuple], list] | None) -> CollectionRule:
@@ -216,64 +215,36 @@ class RuleBuilder:
         if not callable(func):
             raise InvalidFunctionError(func_name)
 
-        RuleBuilder.convert_req_function_args(func, func_args)
+        parsed_args = RuleBuilder.convert_req_function_args(func, func_args)
 
-        # dict, set and list arguments are mutable and `func` could mutate them, so mutable arguments need to be
-        # identified and copied before they get passed to `func()`.
-        copy_args = []
-        deep_copy_args = []
-        for i, arg in enumerate(func_args):
-            if isinstance(arg, dict):
-                # dict keys should be immutable, but dict values can be mutable
-                for v in arg.values():
-                    if isinstance(v, (dict, list, set)):
-                        deep_copy_args.append(i)
-                        break
-                else:
-                    # All values in the dict are immutable, so a simple .copy() call is all that is needed.
-                    copy_args.append(i)
-            elif isinstance(arg, list):
-                for v in arg:
-                    if isinstance(v, (dict, list, set)):
-                        deep_copy_args.append(i)
-                        break
-                else:
-                    # All values in the list are immutable, so a simple .copy() call is all that is needed.
-                    copy_args.append(i)
-            elif isinstance(arg, set):
-                # A set should only contain immutable values, so there is never a need to deep copy a set.
-                copy_args.append(i)
-
-        # todo: Instead of copying, create 'constructor' functions for the arguments that can be called to create a new
-        #  copy of the argument when the argument is mutable.
-
-        # Determine the appropriate function to copy every mutable argument.
-        if copy_args:
-            if deep_copy_args:
-                def args_copy_func(args: tuple) -> list:
-                    args_list = list(args)
-                    for j in copy_args:
-                        args_list[j] = args[j].copy()
-                    for j in deep_copy_args:
-                        args_list[j] = deepcopy(args[j])
-                    return args_list
+        base_args: list[Any] = []
+        function_args: list[tuple[int, Callable[[], Any]]] = []
+        for i, (arg, is_function) in enumerate(parsed_args):
+            if is_function:
+                # Using `...` to avoid confusion with `None` which is a valid literal argument. Technically `...` is
+                # also a valid literal, but it is unlikely to see normal use.
+                base_args.append(...)
+                # The argument is constructed by calling a function.
+                function_args.append((i, arg))
             else:
-                def args_copy_func(args: tuple) -> list:
-                    args_list = list(args)
-                    for j in deep_copy_args:
-                        args_list[j] = args[j].copy()
-                    return args_list
+                # If no function is provided, then the instance is used as-is. This usually means the instance is
+                # immutable, but it could be mutable if one of the function's default arguments is used and that default
+                # argument is mutable.
+                base_args.append(arg)
+
+        if function_args:
+            def args_copy_func():
+                args = base_args.copy()
+                for i, function in function_args:
+                    args[i] = function()
+                return args
+
+            new_func_args = ()
         else:
-            if deep_copy_args:
-                def args_copy_func(args: tuple) -> list:
-                    args_list = list(args)
-                    for j in deep_copy_args:
-                        args_list[j] = deepcopy(args[j])
-                    return args_list
-            else:
-                args_copy_func = None
+            args_copy_func = None
+            new_func_args = tuple(base_args)
 
-        rule = self.make_function_collection_rule(func, tuple(func_args), args_copy_func)
+        rule = self.make_function_collection_rule(func, new_func_args, args_copy_func)
         return func_name, rule
 
     def requires_string_to_ast(self, area: dict | tuple[HookFunction, tuple], requires_list: str
