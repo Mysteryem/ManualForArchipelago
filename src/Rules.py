@@ -161,7 +161,7 @@ class RuleBuilder:
                 raise RuntimeError(f"Error: Simple function {func} had complex arguments")
             else:
                 # Small optimization for single argument.
-                if len(func_args) == 0:
+                if len(func_args) == 1:
                     func_arg = func_args[0]
 
                     def collection_rule(state: CollectionState):
@@ -180,7 +180,7 @@ class RuleBuilder:
                         return self.runtime_rule_string_to_callable(func, s)(state)
             else:
                 # Small optimization for single argument.
-                if len(func_args) == 0:
+                if len(func_args) == 1:
                     func_arg = func_args[0]
 
                     def collection_rule(state: CollectionState):
