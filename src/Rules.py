@@ -1,6 +1,6 @@
 import ast
 from collections import OrderedDict
-from typing import TYPE_CHECKING, Optional, Literal, Union, Callable, ClassVar, Any
+from typing import TYPE_CHECKING, Optional, Literal, Union, Callable, ClassVar, Any, Protocol
 from enum import IntEnum
 from operator import eq, ge, le
 
@@ -60,7 +60,14 @@ def _never(state: CollectionState):
     return False
 
 
-HookFunction = Callable[[World, MultiWorld, CollectionState, int, ...], Union[bool, str]]
+class HookFunction(Protocol):
+    """Protocol to represent custom hooks.Rules functions in type hints."""
+    def __call__(self,
+                 world: World,
+                 multiworld: MultiWorld,
+                 state: CollectionState,
+                 player: int,
+                 *args, **kwargs) -> bool | str: ...
 
 
 class RuleBuilder:
