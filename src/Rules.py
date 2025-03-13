@@ -95,8 +95,8 @@ class RuleBuilder:
 
     @staticmethod
     def create_collection_rule_from_ast(original_rule_string: str,
-                                        node: ast.BoolOp | ast.Call | ast.Constant, args: dict[str, CollectionRule]
-                                        ) -> CollectionRule:
+                                        node: ast.BoolOp | ast.Call | ast.Constant,
+                                        args: dict[str, CollectionRule]) -> CollectionRule:
         if isinstance(node, ast.Constant):
             # The only allowed constants are True/False.
             literal_value = node.value
@@ -155,7 +155,9 @@ class RuleBuilder:
             parsed_args.append(arg_tuple)
         return parsed_args
 
-    def make_function_collection_rule(self, func: HookFunction, func_args: tuple,
+    def make_function_collection_rule(self,
+                                      func: HookFunction,
+                                      func_args: tuple,
                                       args_copy_func: Callable[[tuple], list] | None) -> CollectionRule:
         world = self.world
         player = self.player
