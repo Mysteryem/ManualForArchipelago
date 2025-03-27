@@ -22,6 +22,7 @@ import logging
 if TYPE_CHECKING:
     from . import ManualWorld
 
+# todo: Rename these constants now that infix->postfix conversion for rule evaluation is no more
 class LogicErrorSource(IntEnum):
     INFIX_TO_POSTFIX = 1 # includes more closing parentheses than opening (but not the opposite)
     EVALUATE_POSTFIX = 2 # includes missing pipes and missing value on either side of AND/OR
@@ -851,14 +852,19 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
                     regionCheck = fullLocationOrRegionCheck(state, region)
 
                 return locationCheck and regionCheck
-
+            # todo: Compile the rule for this location and directly set it on the location.
+            # todo: Why is checking the region relevant? Locations should be within their region.
             set_rule(locFromWorld, checkBothLocationAndRegion)
         elif "region" in location: # Only region access required, check the location's region's requires
             def fullRegionCheck(state, region=locationRegion):
                 return fullLocationOrRegionCheck(state, region)
 
+            # todo: Why is checking the region relevant? Locations should be within their region.
             set_rule(locFromWorld, fullRegionCheck)
         else: # No location region and no location requires? It's accessible.
+            # todo: The default rule for a Location is a specific `lambda state: True` instance that parts of AP can
+            #  compare against by identity to skip even having to check the rule. Setting this function would be slower
+            #  and use more memory from creating a new function object for every location.
             def allRegionsAccessible(state):
                 return True
 
