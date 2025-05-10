@@ -135,7 +135,6 @@ class RuleBuilder:
         parsed_args = []
         for parameter in parameters.values():
             target_type = parameter.annotation
-            index += 1
 
             if target_type in knownParameters:
                 if target_type in [World, 'ManualWorld']:
@@ -148,6 +147,8 @@ class RuleBuilder:
             if parameter.name.lower() == "player":
                 parsed_args.append((self.player, False))
                 continue
+
+            index += 1
 
             if index < len(args) and args[index] != "":
                 value = args[index].strip()
