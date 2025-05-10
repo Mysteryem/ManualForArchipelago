@@ -1,18 +1,224 @@
 {
-    "$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.regions.schema.json",
-    "ExampleRegion":{
-        "connects_to": ["Second Region"],
-        "requires": "|Ryu| or {YamlCompare(Example_Range >= example )}",
-        "starting": true
-    },
-    "Second Region": {
-        "requires": "|@Characters:1|",
-        "connects_to": ["Third Region"],
-        "exit_requires": {
-            "Third Region": "|@Characters:5|"
-        }
-    },
-    "Third Region": {
-        "connects_to": []
-    }
+  "Cantina": {
+    "connects_to": [
+      "Episode 1",
+      "Episode 2",
+      "Episode 3",
+      "Episode 4",
+      "Episode 5",
+      "Episode 6"
+    ],
+    "starting": true,
+    "requires": []
+  },
+  "Episode 1": {
+    "connects_to": [
+      "Negotiations",
+      "Invasion of Naboo",
+      "Escape From Naboo",
+      "Mos Espa Podrace",
+      "Retake Theed Palace",
+      "Darth Maul"
+    ],
+    "requires": []
+  },
+  "Episode 2": {
+    "connects_to": [
+      "Bounty Hunter Pursuit",
+      "Discovery on Kamino",
+      "Droid Factory",
+      "Jedi Battle",
+      "Gunship Cavalry",
+      "Count Dooku"
+    ],
+    "requires": "|Episode 2 Unlock|"
+  },
+  "Episode 3": {
+    "connects_to": [
+      "Battle Over Coruscant",
+      "Chancellor in Peril",
+      "General Grievous",
+      "Defense of Kashyyyk",
+      "Ruin of the Jedi",
+      "Darth Vader"
+    ],
+    "requires": "|Episode 3 Unlock|"
+  },
+  "Episode 4": {
+    "connects_to": [
+      "Secret Plans",
+      "Through the Jundland Wastes",
+      "Mos Eisley Spaceport",
+      "Rescue the Princess",
+      "Death Star Escape",
+      "Rebel Attack"
+    ],
+    "requires": "|Episode 4 Unlock|"
+  },
+  "Episode 5": {
+    "connects_to": [
+      "Hoth Battle",
+      "Escape From Echo Base",
+      "Falcon Flight",
+      "Dagobah",
+      "Cloud City Trap",
+      "Betrayal Over Bespin"
+    ],
+    "requires": "|Episode 5 Unlock|"
+  },
+  "Episode 6": {
+    "connects_to": [
+      "Jabba's Palace",
+      "Pit of Carkoon",
+      "Speeder Showdown",
+      "Battle of Endor",
+      "Jedi Destiny",
+      "Into the Death Star"
+    ],
+    "requires": "|Episode 6 Unlock|"
+  },
+  "Negotiations": {
+    "connects_to": [],
+    "requires": []
+  },
+  "Invasion of Naboo": {
+    "connects_to": [],
+    "requires": "|Jar Jar Binks|"
+  },
+  "Escape From Naboo": {
+    "connects_to": [],
+    "requires": "|Captain Panaka| AND |Queen Amidala|"
+  },
+  "Mos Espa Podrace": {
+    "connects_to": [],
+    "requires": "|Anakin's Podracer|"
+  },
+  "Retake Theed Palace": {
+    "connects_to": [],
+    "requires": "|Captain Panaka| AND |Queen Amidala| AND |R2-D2| AND |Anakin Skywalker (Boy)|"
+  },
+  "Darth Maul": {
+    "connects_to": [],
+    "requires": []
+  },
+  "Bounty Hunter Pursuit": {
+    "connects_to": [],
+    "requires": "|Speeder|"
+  },
+  "Discovery on Kamino": {
+    "connects_to": [],
+    "requires": "|R4-P17| AND |Obi-Wan Kenobi (Jedi Master)|"
+  },
+  "Droid Factory": {
+    "connects_to": [],
+    "requires": "|Anakin Skywalker (Padawan)| AND |Padmé (Geonosis)| AND |R2-D2| AND |C-3PO|"
+  },
+  "Jedi Battle": {
+    "connects_to": [],
+    "requires": "|Mace Windu| AND |Padmé (Clawed)| AND |Anakin Skywalker (Padawan)| AND |Obi-Wan Kenobi (Jedi Master)|"
+  },
+  "Gunship Cavalry": {
+    "connects_to": [],
+    "requires": "|Republic Gunship|"
+  },
+  "Count Dooku": {
+    "connects_to": [],
+    "requires": "|Anakin Skywalker (Padawan)| AND |Obi-Wan Kenobi (Jedi Master)| AND |Yoda| "
+  },
+  "Battle Over Coruscant": {
+    "connects_to": [],
+    "requires": "|Obi-Wan's Starfighter| AND |Anakin's Starfighter|"
+  },
+  "Chancellor in Peril": {
+    "connects_to": [],
+    "requires": "|Anakin Skywalker (Jedi)| AND |Chancellor Palpatine| AND |Obi-Wan Kenobi (Episode 3)| AND |R2-D2|"
+  },
+  "General Grievous": {
+    "connects_to": [],
+    "requires": "|Obi-Wan Kenobi (Episode 3)| AND |Commander Cody|"
+  },
+  "Defense of Kashyyyk": {
+    "connects_to": [],
+    "requires": "|Chewbacca| AND |Yoda|"
+  },
+  "Ruin of the Jedi": {
+    "connects_to": [],
+    "requires": "|Obi-Wan Kenobi (Episode 3)| AND |Yoda|"
+  },
+  "Darth Vader": {
+    "connects_to": [],
+    "requires": "|Anakin Skywalker (Jedi)| AND |Obi-Wan Kenobi (Episode 3)|"
+  },
+  "Secret Plans": {
+    "connects_to": [],
+    "requires": "|Princess Leia| AND |Captain Antilles| AND |C-3PO| AND |R2-D2| AND |Rebel Friend|"
+  },
+  "Through the Jundland Wastes": {
+    "connects_to": [],
+    "requires": "|Luke Skywalker (Tatooine)| AND |C-3PO| AND |R2-D2| AND |Ben Kenobi| "
+  },
+  "Mos Eisley Spaceport": {
+    "connects_to": [],
+    "requires": "|Han Solo| AND |Ben Kenobi| AND |Luke Skywalker (Tatooine)| AND |C-3PO| AND |R2-D2| AND |Chewbacca|"
+  },
+  "Rescue the Princess": {
+    "connects_to": [],
+    "requires": "|Luke Skywalker (Stormtrooper)| AND |Ben Kenobi| AND |Han Solo (Stormtrooper)| AND |Chewbacca| AND |C-3PO| AND |R2-D2|"
+  },
+  "Death Star Escape": {
+    "connects_to": [],
+    "requires": "|Luke Skywalker (Tatooine)| AND |Princess Leia| AND |Han Solo| AND |Chewbacca| AND |C-3PO| AND |R2-D2|"
+  },
+  "Rebel Attack": {
+    "connects_to": [],
+    "requires": "|X-Wing| AND |Y-Wing|"
+  },
+  "Hoth Battle": {
+    "connects_to": [],
+    "requires": "|Snowspeeder|"
+  },
+  "Escape From Echo Base": {
+    "connects_to": [],
+    "requires": "|Han Solo (Hoth)| AND |Princess Leia (Hoth)| AND |C-3PO| AND |Chewbacca|"
+  },
+  "Falcon Flight": {
+    "connects_to": [],
+    "requires": "|Millenium Falcon| AND |X-Wing|"
+  },
+  "Dagobah": {
+    "connects_to": [],
+    "requires": "|Luke Skywalker (Pilot)| AND |Luke Skywalker (Dagobah)| AND |R2-D2| AND |Yoda|"
+  },
+  "Cloud City Trap": {
+    "connects_to": [],
+    "requires": "|Luke Skywalker (Bespin)| AND |R2-D2|"
+  },
+  "Betrayal Over Bespin": {
+    "connects_to": [],
+    "requires": "|Princess Leia (Bespin)| AND |Lando Calrissian| AND |C-3PO| AND |R2-D2|"
+  },
+  "Jabba's Palace": {
+    "connects_to": [],
+    "requires": "|Princess Leia (Boushh)| AND |Chewbacca| AND |Luke Skywalker (Jedi)| AND |R2-D2| AND |C-3PO| AND |Han Solo (Skiff)|"
+  },
+  "Pit of Carkoon": {
+    "connects_to": [],
+    "requires": "|Luke Skywalker (Jedi)| AND |Lando Calrissian (Palace Guard)| AND |Han Solo (Skiff)| AND |Chewbacca| AND |R2-D2| AND |C-3PO| AND |Princess Leia (Slave)|"
+  },
+  "Speeder Showdown": {
+    "connects_to": [],
+    "requires": "|Luke Skywalker (Endor)| AND |Princess Leia (Endor)|"
+  },
+  "Battle of Endor": {
+    "connects_to": [],
+    "requires": "|Han Solo (Endor)| AND |Princess Leia (Endor)| AND |Chewbacca| AND |R2-D2| AND |C-3PO| AND |Wicket|"
+  },
+  "Jedi Destiny": {
+    "connects_to": [],
+    "requires": "|Darth Vader| AND |Luke Skywalker (Jedi)|"
+  },
+  "Into the Death Star": {
+    "connects_to": [],
+    "requires": "|Millenium Falcon| AND |X-Wing|"
+  }
 }

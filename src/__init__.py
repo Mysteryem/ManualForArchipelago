@@ -491,7 +491,10 @@ class VersionedComponent(Component):
         self.version = version
 
 def add_client_to_launcher() -> None:
-    version = 2025_04_17 # YYYYMMDD
+    # This manual version has heavily modified logic implementation, and is based on the
+    # main branch rather than a stable or unstable release, so never replace an already
+    # found client with this client, by giving this client the lowest possible priority.
+    version = 1 # 2025_04_17 # YYYYMMDD
     found = False
 
     if "manual" not in icon_paths:

@@ -1,33 +1,7 @@
 {
-    "$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.game.schema.json",
-    "game": "UltimateMarvelVsCapcom3",
-    "creator": "ManualTeam",
-
-    "filler_item_name": "Free Character of Your Choice",
-
-    "starting_items": [
-        {
-            "items": ["Ryu", "Akuma"]
-        },
-        {
-            "item_categories": ["Left Side"],
-            "random": 1
-        },
-        {
-            "items": ["Wolverine", "Storm", "Phoenix"],
-            "random": 1
-        },
-        {
-            "item_categories": ["Trash"]
-        },
-        {
-            "random": 3
-        },
-        {
-            "items": ["Deadpool"],
-            "yaml_option": ["start_with_deadpool"]
-        }
-    ],
-    "death_link": false,
-    "starting_index": 1
+  "$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.game.schema.json",
+  "game": "LegoStarWarsTheCompleteSaga",
+  "creator": "Mysteryem",
+  "filler_item_name": "Purple Stud",
+  "starting_items": []
 }

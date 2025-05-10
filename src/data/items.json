@@ -1,409 +1,1394 @@
-{
-    "$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.items.schema.json",
-    "data": [
-        {
-            "name": "Jill",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "value": {"star": 5, "coins": 3},
-            "progression": true
-        },
-        {
-            "name": "Shuma-Gorath",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "value": {"star": 5},
-            "progression": true
-        },
-        {
-            "name": "Nemesis T-Type",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "value": {"coins": 7},
-        "progression": true
-        },
-        {
-            "name": "Firebrand",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Strider Hiryu",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Phoenix Wright",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Nova",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Ghost Rider",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Hawkeye",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Doctor Strange",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Chris",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Arthur",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Frank West",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Vergil",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Iron Fist",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Rocket Raccoon",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Captain America",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Dormammu",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Wesker",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Zero",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Ryu",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Dante",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Deadpool",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Wolverine",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Iron Man",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Doctor Doom",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Morrigan",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Tron",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Chun-Li",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Trish",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "X-23",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Storm",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Thor",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "M.O.D.O.K.",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Felicia",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Spencer",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Akuma",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Viewtiful Joe",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Spider-Man",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Sentinel",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Hulk",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Super-Skrull",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Hsien-Ko",
-            "category": [
-                "Characters",
-                "Left Side",
-                "Trash"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Haggar",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "C. Viper",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Amaterasu",
-            "category": [
-                "Characters",
-                "Left Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Phoenix",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Magneto",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "She-Hulk",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        },
-        {
-            "name": "Taskmaster",
-            "category": [
-                "Characters",
-                "Right Side"
-            ],
-            "progression": true
-        }    ]
-
-}
+[
+  {
+    "count": "360",
+    "name": "Minikit",
+    "category": [
+      "Minikit"
+    ],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Jar Jar Binks",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Queen Amidala",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Captain Panaka",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Padmé (Battle)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "R2-D2",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Anakin Skywalker (Boy)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Obi-Wan Kenobi (Jedi Master)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "R4-P17",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Anakin Skywalker (Padawan)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Padmé (Geonosis)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "C-3PO",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Mace Windu",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Padmé (Clawed)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Yoda",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Obi-Wan Kenobi (Episode 3)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Anakin Skywalker (Jedi)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Chancellor Palpatine",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Commander Cody",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Chewbacca",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Princess Leia",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Captain Antilles",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Rebel Friend",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Luke Skywalker (Tatooine)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Ben Kenobi",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Han Solo",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Luke Skywalker (Stormtrooper)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Han Solo (Stormtrooper)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Han Solo (Hoth)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Princess Leia (Hoth)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Luke Skywalker (Pilot)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Luke Skywalker (Dagobah)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Luke Skywalker (Bespin)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Princess Leia (Boushh)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Luke Skywalker (Jedi)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Han Solo (Skiff)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Lando Calrissian (Palace Guard)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Princess Leia (Slave)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Luke Skywalker (Endor)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Princess Leia (Endor)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Han Solo (Endor)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Wicket",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Darth Vader",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Lando Calrissian",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Princess Leia (Bespin)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Gonk Droid",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "PK Droid",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Battle Droid",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Battle Droid (Security)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Battle Droid (Commander)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Droideka",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Captain Tarpals",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Boss Nass",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Royal Guard",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Watto",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Pit Droid",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Darth Maul",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Zam Wesell",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Dexter Jettster",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Clone",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Lama Su",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Taun We",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Geonosian",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Battle Droid (Geonosis)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Super Battle Droid",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Jango Fett",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Boba Fett (Boy)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Luminara",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Ki-Adi Mundi",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Kit Fisto",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Shaak Ti",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Aayla Secura",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Plo Kloon",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Count Dooku",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Grievous' Bodyguard",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "General Grievous",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Wookiee",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Clone (Episode 3)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Clone (Episode 3, Pilot)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Clone (Episode 3, Swamp)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Clone (Episode 3, Walker)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Mace Windu (Episode 3)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Disguised Clone",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Rebel Trooper",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Stormtrooper",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Imperial Shuttle Pilot",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Tusken Raider",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Jawa",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Sandtrooper",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Greedo",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Imperial Spy",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Beach Trooper",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Death Star Trooper",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "TIE Fighter Pilot",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Imperial Officer",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Grand Moff Tarkin",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Han Solo (Hood)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Rebel Trooper (Hoth)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Rebel Pilot",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Snowtrooper",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Lobot",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Ugnaught",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Bespin Guard",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Gamorrean Guard",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Bib Fortuna",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Palace Guard",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Bossk",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Skiff Guard",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Boba Fett",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Ewok",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Imperial Guard",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "The Emperor",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Admiral Ackbar",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "IG-88",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Dengar",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "4-LOM",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Ben Kenobi (Ghost)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Yoda (Ghost)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "R2-Q5",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Padmé",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Luke Skywalker (Hoth)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Super Gonk",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Fertilizer",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Walkie Talkie Disable",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Red Brick Detector",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Super Slap",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Force Grapple Leap",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Stud Magnet",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Disarm Troopers",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Character Studs",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Perfect Deflect",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Exploding Blaster Bolts",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Force Pull",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Vehicle Smart Bomb",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Super Astromech",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Super Jedi Slam",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Super Thermal Detector",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Deflect Bolts",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Dark Side",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Super Blasters",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Fast Force",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Super Lightsabers",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Tractor Beam",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Invincibility",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": "5",
+    "name": "Progressive Score Multiplier",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Self Destruct",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Fast Build",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Regenerate Hearts",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Minikit Detector",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Super Zapper",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Bounty Hunter Rockets",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Super Ewok Catapult",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": 1,
+    "name": "Infinite Torpedos",
+    "category": [
+      "Extras"
+    ],
+    "useful": true
+  },
+  {
+    "count": "6",
+    "name": "Progressive Bonus Level",
+    "category": [
+      "Bonus Level"
+    ],
+    "progression": true
+  },
+  {
+    "count": "1",
+    "name": "Restart Level Trap",
+    "category": [
+      "Trap"
+    ],
+    "trap": true
+  },
+  {
+    "count": 1,
+    "name": "Episode 2 Unlock",
+    "category": [
+      "Episode Unlocks"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Episode 3 Unlock",
+    "category": [
+      "Episode Unlocks"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Episode 4 Unlock",
+    "category": [
+      "Episode Unlocks"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Episode 5 Unlock",
+    "category": [
+      "Episode Unlocks"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Episode 6 Unlock",
+    "category": [
+      "Episode Unlocks"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Anakin Skywalker (Ghost)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Indiana Jones",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Princess Leia (Prisoner)",
+    "category": [
+      "Character"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Anakin's Podracer",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Naboo Starfighter",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Republic Gunship",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Anakin's Starfighter",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Obi-Wan's Starfighter",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "X-Wing",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Y-Wing",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Millenium Falcon",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "TIE-Interceptor",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Snowspeeder",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Speeder",
+    "category": [
+      "Ship"
+    ],
+    "progression": true
+  }
+]
