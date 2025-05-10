@@ -22,6 +22,12 @@ import logging
 if TYPE_CHECKING:
     from . import ManualWorld
 
+
+# Placeholder used in function rules to indicate a CollectionState argument, to be replaced with the current
+# CollectionState when the actual function is called.
+_COLLECTION_STATE_PLACEHOLDER = object()
+
+
 # todo: Rename these constants now that infix->postfix conversion for rule evaluation is no more
 class LogicErrorSource(IntEnum):
     INFIX_TO_POSTFIX = 1 # includes more closing parentheses than opening (but not the opposite)
@@ -62,13 +68,14 @@ def _never(state: CollectionState):
 
 
 class HookFunction(Protocol):
-    """Protocol to represent custom hooks.Rules functions in type hints."""
-    def __call__(self,
-                 world: World,
-                 multiworld: MultiWorld,
-                 state: CollectionState,
-                 player: int,
-                 *args, **kwargs) -> bool | str: ...
+    """
+    Protocol to represent custom hooks.Rules functions in type hints.
+
+    Hook functions can require the `World`, `MultiWorld`, `CollectionState` and `player` arguments in any order and can
+    omit any/all arguments. Additional arguments can be required, which will be parsed from the json rules that call the
+    functions.
+    """
+    def __call__(self, *args) -> bool | str: ...
 
 
 class RuleBuilder:
@@ -121,24 +128,32 @@ class RuleBuilder:
 
         return rule_func
 
-    @staticmethod
-    def convert_req_function_args(func, args: list[str]) -> list[tuple[Any, bool]]:
+    def convert_req_function_args(self, func, args: list[str]) -> list[tuple[Any, bool]]:
         parameters = inspect.signature(func).parameters
-        knownParameters = ["world", "multiworld", "state", "player"]
+        knownParameters = [World, 'ManualWorld', MultiWorld, CollectionState]
         index = -1
         parsed_args = []
         for parameter in parameters.values():
-            if parameter.name in knownParameters:
-                continue
-            index += 1
             target_type = parameter.annotation
+            index += 1
+
+            if target_type in knownParameters:
+                if target_type in [World, 'ManualWorld']:
+                    parsed_args.append((self.world, False))
+                elif target_type == MultiWorld:
+                    parsed_args.append((self.multiworld, False))
+                elif target_type == CollectionState:
+                    parsed_args.append((_COLLECTION_STATE_PLACEHOLDER, False))
+                continue
+            if parameter.name.lower() == "player":
+                parsed_args.append((self.player, False))
+                continue
 
             if index < len(args) and args[index] != "":
                 value = args[index].strip()
             else:
                 if parameter.default is not inspect.Parameter.empty:
-                    if index < len(args):
-                        parsed_args.append((parameter.default, False))
+                    parsed_args.append((parameter.default, False))
                     continue
                 else:
                     if parameter.annotation is inspect.Parameter.empty:
@@ -159,63 +174,108 @@ class RuleBuilder:
         return parsed_args
 
     def make_function_collection_rule(self,
-                                      func: HookFunction,
-                                      func_args: tuple,
-                                      args_copy_func: Callable[[tuple], list] | None) -> CollectionRule:
-        world = self.world
-        player = self.player
-        multiworld = self.multiworld
-
-        if func in SIMPLE_FUNCTIONS:
-            if args_copy_func is not None:
-                raise RuntimeError(f"Error: Simple function {func} had complex arguments")
-            else:
-                num_args = len(func_args)
-                if num_args == 0:
-                    def collection_rule(state: CollectionState):
-                        return func(world, multiworld, state, player)
-                elif num_args == 1:
-                    func_arg = func_args[0]
-
-                    def collection_rule(state: CollectionState):
-                        return func(world, multiworld, state, player, func_arg)
-                else:
-                    def collection_rule(state: CollectionState):
-                        return func(world, multiworld, state, player, *func_args)
+                                      hook_function: HookFunction,
+                                      func_args_or_copy_func: list | Callable[[], list],
+                                      state_arg_indices: list[int],
+                                      ) -> CollectionRule:
+        func_args: list | None
+        func_args_or_copy_func: Callable[[], list] | None
+        if isinstance(func_args_or_copy_func, list):
+            func_args = func_args_or_copy_func
+            args_copy_func = None
         else:
-            if args_copy_func is not None:
+            func_args = None
+            args_copy_func = func_args_or_copy_func
+
+        args_copy_func_with_state: Callable[[CollectionState, tuple], list] | None = None
+
+        if state_arg_indices:
+            # Some of the hook function parameters take a CollectionState argument. This CollectionState argument(s)
+            # need to be added into the hook function arguments before the hook function is called.
+            if args_copy_func is None:
+                # None of the arguments actually need to be copied because they are immutable, but it is not safe to
+                # pass the `func_args` list to a hook function because it could modify the list, so a list copy needs
+                # to be made to be able to set any CollectionState arguments into the function arguments.
+                if len(state_arg_indices) == 1:
+                    state_arg_index = state_arg_indices[0]
+
+                    def args_copy_func_with_state(state: CollectionState) -> list:
+                        copied_args = func_args.copy()
+                        copied_args[state_arg_index] = state
+                        return copied_args
+                else:
+                    # A HookFunction with multiple CollectionState arguments should basically never happen, but account
+                    # for the possibility anyway.
+                    def args_copy_func_with_state(state: CollectionState) -> list:
+                        copied_args = func_args.copy()
+                        for i in state_arg_indices:
+                            copied_args[i] = state
+                        return copied_args
+            else:
+                # Create functions that run the arguments copy function and then set the CollectionState(s) into the
+                # copied arguments.
+                if len(state_arg_indices) == 1:
+                    state_arg_index = state_arg_indices[0]
+
+                    def args_copy_func_with_state(state: CollectionState) -> list:
+                        copied_args = args_copy_func()
+                        copied_args[state_arg_index] = state
+                        return copied_args
+                else:
+                    # A HookFunction with multiple CollectionState arguments should basically never happen, but account
+                    # for the possibility anyway.
+                    def args_copy_func_with_state(state: CollectionState) -> list:
+                        copied_args = args_copy_func()
+                        for i in state_arg_indices:
+                            copied_args[i] = state
+                        return copied_args
+
+        if args_copy_func_with_state is not None:
+            def collection_rule(state: CollectionState):
+                result = hook_function(*args_copy_func_with_state(state))
+                if result is True or result is False:
+                    return result
+                else:
+                    return self.runtime_rule_string_to_callable(hook_function, str(result))(state)
+        elif args_copy_func is not None:
+            def collection_rule(state: CollectionState):
+                result = hook_function(*args_copy_func())
+                if result is True or result is False:
+                    return result
+                else:
+                    return self.runtime_rule_string_to_callable(hook_function, str(result))(state)
+        else:
+            num_args = len(func_args)
+            if num_args == 0:
+                # Avoid the unpacking operation by calling the hook function directly with no arguments.
                 def collection_rule(state: CollectionState):
-                    result = func(world, multiworld, state, player, *args_copy_func(func_args))
+                    result = hook_function()
                     if result is True or result is False:
                         return result
                     else:
-                        return self.runtime_rule_string_to_callable(func, str(result))(state)
-            else:
-                num_args = len(func_args)
-                if num_args == 0:
-                    def collection_rule(state: CollectionState):
-                        result = func(world, multiworld, state, player)
-                        if result is True or result is False:
-                            return result
-                        else:
-                            return self.runtime_rule_string_to_callable(func, str(result))(state)
-                elif num_args == 1:
-                    func_arg = func_args[0]
+                        return self.runtime_rule_string_to_callable(hook_function, str(result))(state)
+            elif num_args == 1:
+                # Avoid the unpacking operation by passing the singular argument directly.
+                func_arg = func_args[0]
 
-                    def collection_rule(state: CollectionState):
-                        result = func(world, multiworld, state, player, func_arg)
-                        if result is True or result is False:
-                            return result
-                        else:
-                            return self.runtime_rule_string_to_callable(func, str(result))(state)
-                else:
-                    def collection_rule(state: CollectionState):
-                        result = func(world, multiworld, state, player, *func_args)
-                        if result is True or result is False:
-                            return result
-                        else:
-                            s = str(result)
-                            return self.runtime_rule_string_to_callable(func, s)(state)
+                def collection_rule(state: CollectionState):
+                    result = hook_function(func_arg)
+                    if result is True or result is False:
+                        return result
+                    else:
+                        return self.runtime_rule_string_to_callable(hook_function, str(result))(state)
+            else:
+                # Unpacking a tuple in a function call, when it is the only argument, is effectively free, whereas
+                # unpacking a list has to effectively convert to a tuple first, so create a tuple in advance.
+                func_args_as_tuple = tuple(func_args)
+
+                def collection_rule(state: CollectionState):
+                    result = hook_function(*func_args_as_tuple)
+                    if result is True or result is False:
+                        return result
+                    else:
+                        s = str(result)
+                        return self.runtime_rule_string_to_callable(hook_function, s)(state)
         return collection_rule
 
     @cache_self1
@@ -233,10 +293,11 @@ class RuleBuilder:
         if not callable(func):
             raise InvalidFunctionError(func_name)
 
-        parsed_args = RuleBuilder.convert_req_function_args(func, func_args)
+        parsed_args = self.convert_req_function_args(func, func_args)
 
         base_args: list[Any] = []
         function_args: list[tuple[int, Callable[[], Any]]] = []
+        state_arg_indices: list[int] = []
         for i, (arg, is_function) in enumerate(parsed_args):
             if is_function:
                 # Using `...` to avoid confusion with `None` which is a valid literal argument. Technically `...` is
@@ -248,7 +309,13 @@ class RuleBuilder:
                 # If no function is provided, then the instance is used as-is. This usually means the instance is
                 # immutable, but it could be mutable if one of the function's default arguments is used and that default
                 # argument is mutable.
-                base_args.append(arg)
+                if arg is _COLLECTION_STATE_PLACEHOLDER:
+                    # CollectionState arguments only exist when the function is called, so must be added into the
+                    # function arguments just before calling the function.
+                    state_arg_indices.append(i)
+                    base_args.append(...)
+                else:
+                    base_args.append(arg)
 
         if function_args:
             def args_copy_func():
@@ -257,12 +324,11 @@ class RuleBuilder:
                     args[i] = function()
                 return args
 
-            new_func_args = ()
+            # The arguments are always created by calling `args_copy_func`
+            rule = self.make_function_collection_rule(func, args_copy_func, state_arg_indices)
         else:
-            args_copy_func = None
-            new_func_args = tuple(base_args)
+            rule = self.make_function_collection_rule(func, base_args, state_arg_indices)
 
-        rule = self.make_function_collection_rule(func, new_func_args, args_copy_func)
         return func_name, rule
 
     def requires_string_to_ast(self, area: dict | tuple[HookFunction, tuple], requires_list: str
