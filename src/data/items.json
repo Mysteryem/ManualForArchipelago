@@ -20,7 +20,8 @@
     "count": 1,
     "name": "Queen Amidala",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -28,7 +29,8 @@
     "count": 1,
     "name": "Captain Panaka",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -36,7 +38,8 @@
     "count": 1,
     "name": "Padmé (Battle)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -87,7 +90,8 @@
     "count": 1,
     "name": "Padmé (Geonosis)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -111,7 +115,8 @@
     "count": 1,
     "name": "Padmé (Clawed)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -152,7 +157,8 @@
     "name": "Commander Cody",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -160,7 +166,8 @@
     "count": 1,
     "name": "Chewbacca",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -168,7 +175,8 @@
     "count": 1,
     "name": "Princess Leia",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -176,7 +184,8 @@
     "count": 1,
     "name": "Captain Antilles",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -184,7 +193,8 @@
     "count": 1,
     "name": "Rebel Friend",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -192,7 +202,8 @@
     "count": 1,
     "name": "Luke Skywalker (Tatooine)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -208,7 +219,8 @@
     "count": 1,
     "name": "Han Solo",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -216,7 +228,8 @@
     "count": 1,
     "name": "Luke Skywalker (Stormtrooper)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -224,7 +237,8 @@
     "count": 1,
     "name": "Han Solo (Stormtrooper)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -232,7 +246,8 @@
     "count": 1,
     "name": "Han Solo (Hoth)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -240,7 +255,8 @@
     "count": 1,
     "name": "Princess Leia (Hoth)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -272,7 +288,8 @@
     "count": 1,
     "name": "Princess Leia (Boushh)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -288,7 +305,8 @@
     "count": 1,
     "name": "Han Solo (Skiff)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -296,7 +314,8 @@
     "count": 1,
     "name": "Lando Calrissian (Palace Guard)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -304,7 +323,8 @@
     "count": 1,
     "name": "Princess Leia (Slave)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -320,7 +340,8 @@
     "count": 1,
     "name": "Princess Leia (Endor)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -328,7 +349,8 @@
     "count": 1,
     "name": "Han Solo (Endor)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -355,7 +377,8 @@
     "count": 1,
     "name": "Lando Calrissian",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -363,7 +386,8 @@
     "count": 1,
     "name": "Princess Leia (Bespin)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -387,7 +411,8 @@
     "count": 1,
     "name": "Battle Droid",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -395,7 +420,8 @@
     "count": 1,
     "name": "Battle Droid (Security)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -403,7 +429,8 @@
     "count": 1,
     "name": "Battle Droid (Commander)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -411,7 +438,8 @@
     "count": 1,
     "name": "Droideka",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -436,7 +464,8 @@
     "count": 1,
     "name": "Royal Guard",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -470,7 +499,8 @@
     "name": "Zam Wesell",
     "category": [
       "Character",
-      "Bounty Hunter Character"
+      "Bounty Hunter Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -487,7 +517,8 @@
     "name": "Clone",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -511,7 +542,8 @@
     "count": 1,
     "name": "Geonosian",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -519,7 +551,8 @@
     "count": 1,
     "name": "Battle Droid (Geonosis)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -527,7 +560,8 @@
     "count": 1,
     "name": "Super Battle Droid",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -536,7 +570,8 @@
     "name": "Jango Fett",
     "category": [
       "Character",
-      "Bounty Hunter Character"
+      "Bounty Hunter Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -628,7 +663,8 @@
     "count": 1,
     "name": "Wookiee",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -637,7 +673,8 @@
     "name": "Clone (Episode 3)",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -646,7 +683,8 @@
     "name": "Clone (Episode 3, Pilot)",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -655,7 +693,8 @@
     "name": "Clone (Episode 3, Swamp)",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -664,7 +703,8 @@
     "name": "Clone (Episode 3, Walker)",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -681,7 +721,8 @@
     "name": "Disguised Clone",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -689,7 +730,8 @@
     "count": 1,
     "name": "Rebel Trooper",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -698,7 +740,8 @@
     "name": "Stormtrooper",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -707,7 +750,8 @@
     "name": "Imperial Shuttle Pilot",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -715,7 +759,8 @@
     "count": 1,
     "name": "Tusken Raider",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -733,7 +778,8 @@
     "name": "Sandtrooper",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -742,7 +788,8 @@
     "name": "Greedo",
     "category": [
       "Character",
-      "Bounty Hunter Character"
+      "Bounty Hunter Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -760,7 +807,8 @@
     "name": "Beach Trooper",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -769,7 +817,8 @@
     "name": "Death Star Trooper",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -778,7 +827,8 @@
     "name": "TIE Fighter Pilot",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -787,7 +837,8 @@
     "name": "Imperial Officer",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -796,7 +847,8 @@
     "name": "Grand Moff Tarkin",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -804,7 +856,8 @@
     "count": 1,
     "name": "Han Solo (Hood)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -812,7 +865,8 @@
     "count": 1,
     "name": "Rebel Trooper (Hoth)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -820,7 +874,8 @@
     "count": 1,
     "name": "Rebel Pilot",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -829,7 +884,8 @@
     "name": "Snowtrooper",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -854,7 +910,8 @@
     "count": 1,
     "name": "Bespin Guard",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -878,7 +935,8 @@
     "count": 1,
     "name": "Palace Guard",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -887,7 +945,8 @@
     "name": "Bossk",
     "category": [
       "Character",
-      "Bounty Hunter Character"
+      "Bounty Hunter Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -895,7 +954,8 @@
     "count": 1,
     "name": "Skiff Guard",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -904,7 +964,8 @@
     "name": "Boba Fett",
     "category": [
       "Character",
-      "Bounty Hunter Character"
+      "Bounty Hunter Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -913,7 +974,8 @@
     "name": "Ewok",
     "category": [
       "Character",
-      "Shortie Character"
+      "Shortie Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -922,7 +984,8 @@
     "name": "Imperial Guard",
     "category": [
       "Character",
-      "Imperial Character"
+      "Imperial Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -940,7 +1003,8 @@
     "count": 1,
     "name": "Admiral Ackbar",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -950,7 +1014,8 @@
     "category": [
       "Character",
       "Bounty Hunter Character",
-      "Astromech Character"
+      "Astromech Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -959,7 +1024,8 @@
     "name": "Dengar",
     "category": [
       "Character",
-      "Bounty Hunter Character"
+      "Bounty Hunter Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -969,7 +1035,8 @@
     "category": [
       "Character",
       "Bounty Hunter Character",
-      "Astromech Character"
+      "Astromech Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -1002,7 +1069,8 @@
     "count": 1,
     "name": "Padmé",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -1338,7 +1406,8 @@
     "count": 1,
     "name": "Indiana Jones",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
@@ -1346,7 +1415,8 @@
     "count": 1,
     "name": "Princess Leia (Prisoner)",
     "category": [
-      "Character"
+      "Character",
+      "Blaster Character"
     ],
     "progression": true
   },
