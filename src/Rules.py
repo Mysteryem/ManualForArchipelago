@@ -764,8 +764,12 @@ def category_sub_rule(world: "ManualWorld", player: int, area: dict, item_name: 
         if required_count == 0:
             return _always
 
-        def has_category_count(state: CollectionState):
-            return state.has_from_list(category_item_names, player, required_count)
+        if required_count == 1:
+            def has_category_count(state: CollectionState):
+                return state.has_any(category_item_names, player)
+        else:
+            def has_category_count(state: CollectionState):
+                return state.has_from_list(category_item_names, player, required_count)
 
     return has_category_count
 
