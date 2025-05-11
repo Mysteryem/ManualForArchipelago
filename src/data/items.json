@@ -11,7 +11,8 @@
     "count": 1,
     "name": "Jar Jar Binks",
     "category": [
-      "Character"
+      "Character",
+      "High-Jump Character"
     ],
     "progression": true
   },
@@ -411,7 +412,8 @@
     "count": 1,
     "name": "Captain Tarpals",
     "category": [
-      "Character"
+      "Character",
+      "High-Jump Character"
     ],
     "progression": true
   },
@@ -595,7 +597,8 @@
     "count": 1,
     "name": "Grievous' Bodyguard",
     "category": [
-      "Character"
+      "Character",
+      "High-Jump Character"
     ],
     "progression": true
   },
@@ -603,7 +606,8 @@
     "count": 1,
     "name": "General Grievous",
     "category": [
-      "Character"
+      "Character",
+      "High-Jump Character"
     ],
     "progression": true
   },
