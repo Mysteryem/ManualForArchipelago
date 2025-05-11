@@ -397,15 +397,14 @@
     "category": [
       "Character"
     ],
-    "progression": true
+    "useful": true
   },
   {
     "count": 1,
     "name": "PK Droid",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -457,8 +456,7 @@
     "name": "Boss Nass",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -474,16 +472,14 @@
     "name": "Watto",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
     "name": "Pit Droid",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -509,8 +505,7 @@
     "name": "Dexter Jettster",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -527,16 +522,14 @@
     "name": "Lama Su",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
     "name": "Taun We",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -589,48 +582,42 @@
     "name": "Luminara",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
     "name": "Ki-Adi Mundi",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
     "name": "Kit Fisto",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
     "name": "Shaak Ti",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
     "name": "Aayla Secura",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
     "name": "Plo Kloon",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -713,8 +700,7 @@
     "name": "Mace Windu (Episode 3)",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -894,8 +880,7 @@
     "name": "Lobot",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -920,16 +905,14 @@
     "name": "Gamorrean Guard",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
     "name": "Bib Fortuna",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -1045,16 +1028,14 @@
     "name": "Ben Kenobi (Ghost)",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
     "name": "Yoda (Ghost)",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -1079,8 +1060,7 @@
     "name": "Luke Skywalker (Hoth)",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
@@ -1399,8 +1379,7 @@
     "name": "Anakin Skywalker (Ghost)",
     "category": [
       "Character"
-    ],
-    "progression": true
+    ]
   },
   {
     "count": 1,
