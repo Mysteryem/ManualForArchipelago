@@ -1028,14 +1028,16 @@
     "name": "Ben Kenobi (Ghost)",
     "category": [
       "Character"
-    ]
+    ],
+    "useful": true
   },
   {
     "count": 1,
     "name": "Yoda (Ghost)",
     "category": [
       "Character"
-    ]
+    ],
+    "useful": true
   },
   {
     "count": 1,
@@ -1379,7 +1381,8 @@
     "name": "Anakin Skywalker (Ghost)",
     "category": [
       "Character"
-    ]
+    ],
+    "useful": true
   },
   {
     "count": 1,
