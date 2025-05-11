@@ -340,7 +340,8 @@
     "count": 1,
     "name": "Darth Vader",
     "category": [
-      "Character"
+      "Character",
+      "Sith Character"
     ],
     "progression": true
   },
@@ -453,7 +454,8 @@
     "count": 1,
     "name": "Darth Maul",
     "category": [
-      "Character"
+      "Character",
+      "Sith Character"
     ],
     "progression": true
   },
@@ -591,7 +593,8 @@
     "count": 1,
     "name": "Count Dooku",
     "category": [
-      "Character"
+      "Character",
+      "Sith Character"
     ],
     "progression": true
   },
@@ -900,7 +903,8 @@
     "count": 1,
     "name": "The Emperor",
     "category": [
-      "Character"
+      "Character",
+      "Sith Character"
     ],
     "progression": true
   },
