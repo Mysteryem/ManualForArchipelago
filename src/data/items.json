@@ -148,7 +148,8 @@
     "count": 1,
     "name": "Commander Cody",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -341,7 +342,8 @@
     "name": "Darth Vader",
     "category": [
       "Character",
-      "Sith Character"
+      "Sith Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -480,7 +482,8 @@
     "count": 1,
     "name": "Clone",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -628,7 +631,8 @@
     "count": 1,
     "name": "Clone (Episode 3)",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -636,7 +640,8 @@
     "count": 1,
     "name": "Clone (Episode 3, Pilot)",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -644,7 +649,8 @@
     "count": 1,
     "name": "Clone (Episode 3, Swamp)",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -652,7 +658,8 @@
     "count": 1,
     "name": "Clone (Episode 3, Walker)",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -668,7 +675,8 @@
     "count": 1,
     "name": "Disguised Clone",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -684,7 +692,8 @@
     "count": 1,
     "name": "Stormtrooper",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -692,7 +701,8 @@
     "count": 1,
     "name": "Imperial Shuttle Pilot",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -716,7 +726,8 @@
     "count": 1,
     "name": "Sandtrooper",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -733,7 +744,8 @@
     "count": 1,
     "name": "Imperial Spy",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -741,7 +753,8 @@
     "count": 1,
     "name": "Beach Trooper",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -749,7 +762,8 @@
     "count": 1,
     "name": "Death Star Trooper",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -757,7 +771,8 @@
     "count": 1,
     "name": "TIE Fighter Pilot",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -765,7 +780,8 @@
     "count": 1,
     "name": "Imperial Officer",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -773,7 +789,8 @@
     "count": 1,
     "name": "Grand Moff Tarkin",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -805,7 +822,8 @@
     "count": 1,
     "name": "Snowtrooper",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -895,7 +913,8 @@
     "count": 1,
     "name": "Imperial Guard",
     "category": [
-      "Character"
+      "Character",
+      "Imperial Character"
     ],
     "progression": true
   },
@@ -904,7 +923,8 @@
     "name": "The Emperor",
     "category": [
       "Character",
-      "Sith Character"
+      "Sith Character",
+      "Imperial Character"
     ],
     "progression": true
   },

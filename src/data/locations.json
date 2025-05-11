@@ -661,7 +661,7 @@
     "category": [
       "Extras"
     ],
-    "requires": "(|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Imperial Character|"
   },
   {
     "name": "Purchase Stud Magnet (2-1)",
@@ -677,7 +677,7 @@
     "category": [
       "Extras"
     ],
-    "requires": "(|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Imperial Character|"
   },
   {
     "name": "Purchase Character Studs (2-3)",
@@ -1565,7 +1565,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "1-6 Minikit 2",
@@ -1573,7 +1573,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "1-6 Minikit 3",
@@ -1581,7 +1581,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "1-6 Minikit 4",
@@ -1589,7 +1589,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "1-6 Minikit 5",
@@ -1597,7 +1597,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "1-6 Minikit 6",
@@ -1605,7 +1605,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "1-6 Minikit 7",
@@ -1613,7 +1613,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "1-6 Minikit 8",
@@ -1621,7 +1621,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "1-6 Minikit 9",
@@ -1629,7 +1629,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "1-6 Minikit 10",
@@ -1637,7 +1637,7 @@
     "category": [
       "Episode 1"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "2-1 Minikit 1",
@@ -1805,7 +1805,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-3 Minikit 2",
@@ -1813,7 +1813,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-3 Minikit 3",
@@ -1821,7 +1821,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-3 Minikit 4",
@@ -1829,7 +1829,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-3 Minikit 5",
@@ -1837,7 +1837,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-3 Minikit 6",
@@ -1845,7 +1845,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-3 Minikit 7",
@@ -1853,7 +1853,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-3 Minikit 8",
@@ -1861,7 +1861,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-3 Minikit 9",
@@ -1869,7 +1869,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-3 Minikit 10",
@@ -1877,7 +1877,7 @@
     "category": [
       "Episode 2"
     ],
-    "requires": "|@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@High-Jump Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "2-4 Minikit 1",
@@ -2445,7 +2445,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-5 Minikit 2",
@@ -2453,7 +2453,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-5 Minikit 3",
@@ -2461,7 +2461,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-5 Minikit 4",
@@ -2469,7 +2469,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-5 Minikit 5",
@@ -2477,7 +2477,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-5 Minikit 6",
@@ -2485,7 +2485,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-5 Minikit 7",
@@ -2493,7 +2493,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-5 Minikit 8",
@@ -2501,7 +2501,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-5 Minikit 9",
@@ -2509,7 +2509,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-5 Minikit 10",
@@ -2517,7 +2517,7 @@
     "category": [
       "Episode 3"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |TIE Fighter Pilot| OR |4-LOM| OR |Admiral Ackbar| OR |Battle Droid| OR |Battle Droid (Commander)| OR |Battle Droid (Geonosis)| OR |Battle Droid (Security)| OR |Bespin Guard| OR |Boba Fett| OR |Bossk| OR |Captain Antilles| OR |Captain Panaka| OR |Chewbacca| OR |Dengar| OR |Droideka| OR |Ewok| OR |Geonosian| OR |Greedo| OR |Han Solo| OR |Han Solo (Endor)| OR |Han Solo (Hood)| OR |Han Solo (Hoth)| OR |Han Solo (Skiff)| OR |Han Solo (Stormtrooper)| OR |IG-88| OR |Indiana Jones| OR |Jango Fett| OR |Lando Calrissian (Palace Guard)| OR |Lando Calrissian| OR |Luke Skywalker (Stormtrooper)| OR |Luke Skywalker (Tatooine)| OR |Padmé| OR |Padmé (Battle)| OR |Padmé (Clawed)| OR |Padmé (Geonosis)| OR |Palace Guard| OR |Princess Leia| OR |Princess Leia (Bespin)| OR |Princess Leia (Boushh)| OR |Princess Leia (Endor)| OR |Princess Leia (Hoth)| OR |Princess Leia (Prisoner)| OR |Princess Leia (Slave)| OR |Queen Amidala| OR |Rebel Friend| OR |Rebel Pilot| OR |Rebel Trooper| OR |Rebel Trooper (Hoth)| OR |Royal Guard| OR |Skiff Guard| OR |Super Battle Droid| OR |Tusken Raider| OR |Wookiee| OR |Zam Wesell|) AND (|R2-Q5| OR |IG-88| OR |4-LOM| OR |R4-P17| OR |R2-D2| OR |Jango Fett| OR |Boba Fett|) AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "3-6 Minikit 1",
@@ -2605,7 +2605,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-1 Minikit 2",
@@ -2613,7 +2613,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-1 Minikit 3",
@@ -2621,7 +2621,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-1 Minikit 4",
@@ -2629,7 +2629,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-1 Minikit 5",
@@ -2637,7 +2637,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-1 Minikit 6",
@@ -2645,7 +2645,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-1 Minikit 7",
@@ -2653,7 +2653,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-1 Minikit 8",
@@ -2661,7 +2661,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-1 Minikit 9",
@@ -2669,7 +2669,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-1 Minikit 10",
@@ -2677,7 +2677,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-2 Minikit 1",
@@ -2845,7 +2845,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-4 Minikit 2",
@@ -2853,7 +2853,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-4 Minikit 3",
@@ -2861,7 +2861,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-4 Minikit 4",
@@ -2869,7 +2869,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-4 Minikit 5",
@@ -2877,7 +2877,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-4 Minikit 6",
@@ -2885,7 +2885,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-4 Minikit 7",
@@ -2893,7 +2893,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-4 Minikit 8",
@@ -2901,7 +2901,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-4 Minikit 9",
@@ -2909,7 +2909,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-4 Minikit 10",
@@ -2917,7 +2917,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character|"
   },
   {
     "name": "4-5 Minikit 1",
@@ -2925,7 +2925,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-5 Minikit 2",
@@ -2933,7 +2933,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-5 Minikit 3",
@@ -2941,7 +2941,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-5 Minikit 4",
@@ -2949,7 +2949,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-5 Minikit 5",
@@ -2957,7 +2957,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-5 Minikit 6",
@@ -2965,7 +2965,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-5 Minikit 7",
@@ -2973,7 +2973,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-5 Minikit 8",
@@ -2981,7 +2981,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-5 Minikit 9",
@@ -2989,7 +2989,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-5 Minikit 10",
@@ -2997,7 +2997,7 @@
     "category": [
       "Episode 4"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "4-6 Minikit 1",
@@ -3405,7 +3405,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-5 Minikit 2",
@@ -3413,7 +3413,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-5 Minikit 3",
@@ -3421,7 +3421,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-5 Minikit 4",
@@ -3429,7 +3429,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-5 Minikit 5",
@@ -3437,7 +3437,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-5 Minikit 6",
@@ -3445,7 +3445,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-5 Minikit 7",
@@ -3453,7 +3453,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-5 Minikit 8",
@@ -3461,7 +3461,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-5 Minikit 9",
@@ -3469,7 +3469,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-5 Minikit 10",
@@ -3477,7 +3477,7 @@
     "category": [
       "Episode 5"
     ],
-    "requires": "|@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "5-6 Minikit 1",
@@ -3565,7 +3565,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-1 Minikit 2",
@@ -3573,7 +3573,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-1 Minikit 3",
@@ -3581,7 +3581,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-1 Minikit 4",
@@ -3589,7 +3589,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-1 Minikit 5",
@@ -3597,7 +3597,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-1 Minikit 6",
@@ -3605,7 +3605,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-1 Minikit 7",
@@ -3613,7 +3613,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-1 Minikit 8",
@@ -3621,7 +3621,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-1 Minikit 9",
@@ -3629,7 +3629,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-1 Minikit 10",
@@ -3637,7 +3637,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-2 Minikit 1",
@@ -3725,7 +3725,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-3 Minikit 2",
@@ -3733,7 +3733,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-3 Minikit 3",
@@ -3741,7 +3741,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-3 Minikit 4",
@@ -3749,7 +3749,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-3 Minikit 5",
@@ -3757,7 +3757,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-3 Minikit 6",
@@ -3765,7 +3765,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-3 Minikit 7",
@@ -3773,7 +3773,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-3 Minikit 8",
@@ -3781,7 +3781,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-3 Minikit 9",
@@ -3789,7 +3789,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-3 Minikit 10",
@@ -3797,7 +3797,7 @@
     "category": [
       "Episode 6"
     ],
-    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND (|Beach Trooper| OR |Clone| OR |Clone (Episode 3, Pilot)| OR |Clone (Episode 3, Swamp)| OR |Clone (Episode 3, Walker)| OR |Clone (Episode 3)| OR |Commander Cody| OR |Darth Vader| OR |Death Star Trooper| OR |Disguised Clone| OR |Grand Moff Tarkin| OR |Imperial Guard| OR |Imperial Officer| OR |Imperial Shuttle Pilot| OR |Imperial Spy| OR |Sandtrooper| OR |Snowtrooper| OR |Stormtrooper| OR |The Emperor| OR |TIE Fighter Pilot|) AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
+    "requires": "|@Sith Character| AND |@High-Jump Character| AND |@Bounty Hunter Character| AND |@Imperial Character| AND (|Ewok| OR |Anakin Skywalker (Boy)| OR |Boba Fett (Boy)| OR |Jawa| OR |Ugnaught| OR |Wicket|)"
   },
   {
     "name": "6-4 Minikit 1",
