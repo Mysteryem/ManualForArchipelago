@@ -349,6 +349,30 @@ class ManualWorld(World):
         # DataValidation after all the hooks are done but before fill
         runPreFillDataValidation(self, self.multiworld)
 
+    # This function is not normally included in the manual world and has been added specifically for this apworld.
+    @classmethod
+    def stage_fill_hook(cls, multiworld, progitempool, usefulitempool, filleritempool, fill_locations):
+        player_ids = set(multiworld.get_game_players(cls.game))
+        minimal_player_ids = {player for player in player_ids
+                              if multiworld.worlds[player].options.accessibility == "minimal"}
+
+        def sort_func(item):
+            if item.player in player_ids and item.name == "5 Minikits":
+                if item.player in minimal_player_ids:
+                    # For minimal players, place Minikits first. This helps prevent fill from dumping logically relevant
+                    # items into unreachable locations and reducing the number of reachable locations to fewer than the
+                    # number of items remaining to be placed.
+                    return 1
+                else:
+                    # For non-minimal players, place Minikits last. The helps prevent fill from filling most/all
+                    # reachable locations with the Minikit macguffins that are only required for the goal.
+                    return -1
+            else:
+                # Python sorting is stable, so this will leave everything else in its original order.
+                return 0
+
+        progitempool.sort(key=sort_func)
+
     def fill_slot_data(self):
         slot_data = before_fill_slot_data({}, self, self.multiworld, self.player)
 
