@@ -44,7 +44,8 @@
     "count": 1,
     "name": "R2-D2",
     "category": [
-      "Character"
+      "Character",
+      "Astromech Character"
     ],
     "progression": true
   },
@@ -69,7 +70,8 @@
     "count": 1,
     "name": "R4-P17",
     "category": [
-      "Character"
+      "Character",
+      "Astromech Character"
     ],
     "progression": true
   },
@@ -947,7 +949,8 @@
     "name": "IG-88",
     "category": [
       "Character",
-      "Bounty Hunter Character"
+      "Bounty Hunter Character",
+      "Astromech Character"
     ],
     "progression": true
   },
@@ -965,7 +968,8 @@
     "name": "4-LOM",
     "category": [
       "Character",
-      "Bounty Hunter Character"
+      "Bounty Hunter Character",
+      "Astromech Character"
     ],
     "progression": true
   },
@@ -989,7 +993,8 @@
     "count": 1,
     "name": "R2-Q5",
     "category": [
-      "Character"
+      "Character",
+      "Astromech Character"
     ],
     "progression": true
   },
