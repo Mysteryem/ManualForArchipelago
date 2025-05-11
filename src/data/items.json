@@ -52,7 +52,8 @@
     "count": 1,
     "name": "Anakin Skywalker (Boy)",
     "category": [
-      "Character"
+      "Character",
+      "Shortie Character"
     ],
     "progression": true
   },
@@ -333,7 +334,8 @@
     "count": 1,
     "name": "Wicket",
     "category": [
-      "Character"
+      "Character",
+      "Shortie Character"
     ],
     "progression": true
   },
@@ -540,7 +542,8 @@
     "count": 1,
     "name": "Boba Fett (Boy)",
     "category": [
-      "Character"
+      "Character",
+      "Shortie Character"
     ],
     "progression": true
   },
@@ -718,7 +721,8 @@
     "count": 1,
     "name": "Jawa",
     "category": [
-      "Character"
+      "Character",
+      "Shortie Character"
     ],
     "progression": true
   },
@@ -839,7 +843,8 @@
     "count": 1,
     "name": "Ugnaught",
     "category": [
-      "Character"
+      "Character",
+      "Shortie Character"
     ],
     "progression": true
   },
@@ -905,7 +910,8 @@
     "count": 1,
     "name": "Ewok",
     "category": [
-      "Character"
+      "Character",
+      "Shortie Character"
     ],
     "progression": true
   },
