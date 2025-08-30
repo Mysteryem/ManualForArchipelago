@@ -1049,6 +1049,16 @@ def YamlCompare(world: "ManualWorld", multiworld: MultiWorld, state: CollectionS
     \nFormat it like {YamlCompare(OptionName==value)}
     \nWhere == can be any of the following: ==, !=, >=, <=, <, >
     \nExample: {YamlCompare(Example_Range > 5)}"""
+    if not skipCache:
+        cache = getattr(world, 'yaml_compare_rule_cache', None)
+        if cache is None:
+            cache = {}
+            world.yaml_compare_rule_cache = cache
+        if args in cache:
+            return cache[args]
+    else:
+        cache = None
+
     comp_symbols = { #Maybe find a better name for this
         '==' : eq,
         '!=' : eq, #complement of ==
@@ -1102,57 +1112,49 @@ def YamlCompare(world: "ManualWorld", multiworld: MultiWorld, state: CollectionS
     if not value: #empty string ''
         raise ValueError(f"Could not find a valid value to compare against in given string '{args}'. \nThere must be a value to compare against after the comparator (in this case '{comparator}').")
 
-    if not skipCache: #Cache made for optimization purposes
-        cacheindex = option_name + '_' + comp_symbols[comparator].__name__ + '_' + format_to_valid_identifier(value.lower())
+    try:
+        if issubclass(type(option), Choice):
+            value = convert_string_to_type(value, str|int)
+            if isinstance(value, str):
+                value = option.from_text(value).value
 
-        if not hasattr(world, 'yaml_compare_rule_cache'):
-            world.yaml_compare_rule_cache = dict[str,bool]()
-
-    if skipCache or world.yaml_compare_rule_cache.get(cacheindex, None) is None:
-        try:
-            if issubclass(type(option), Choice):
+        elif issubclass(type(option), Range):
+            if type(option).__base__ == NamedRange:
                 value = convert_string_to_type(value, str|int)
                 if isinstance(value, str):
                     value = option.from_text(value).value
 
-            elif issubclass(type(option), Range):
-                if type(option).__base__ == NamedRange:
-                    value = convert_string_to_type(value, str|int)
-                    if isinstance(value, str):
-                        value = option.from_text(value).value
-
-                else:
-                    value = convert_string_to_type(value, int)
-
-            elif issubclass(type(option), Toggle):
-                value = int(convert_string_to_type(value, bool))
-
             else:
-                raise ValueError(f"YamlCompare does not currently support Option of type {type(option)} \nAsk about it in #Manual-dev and it might be added.")
+                value = convert_string_to_type(value, int)
 
-        except KeyError as ex:
-            raise ValueError(f"YamlCompare failed to find the requested value in what the \"{initial_option_name}\" option supports.\
-                \nRaw error:\
-                \n\n{type(ex).__name__}:{ex}")
+        elif issubclass(type(option), Toggle):
+            value = int(convert_string_to_type(value, bool))
 
-        except Exception as ex:
-            raise TypeError(f"YamlCompare failed to convert the requested value to what a {type(option).__base__.__name__} option supports.\
-                \nCaused By:\
-                \n\n{type(ex).__name__}:{ex}")
+        else:
+            raise ValueError(f"YamlCompare does not currently support Option of type {type(option)} \nAsk about it in #Manual-dev and it might be added.")
 
-        if isinstance(value, str) and comp_symbols[comparator].__name__ != 'eq':
-            #At this point if its still a string don't try and compare with strings using > < >= <=
-            raise ValueError(f'YamlCompare can only compare strings with one of the following: {[s for s, v in comp_symbols.items() if v.__name__ == "eq"]} and you tried to do: "{option.value} {comparator} {value}"')
+    except KeyError as ex:
+        raise ValueError(f"YamlCompare failed to find the requested value in what the \"{initial_option_name}\" option supports.\
+            \nRaw error:\
+            \n\n{type(ex).__name__}:{ex}")
 
-        result = comp_symbols[comparator](option.value, value)
+    except Exception as ex:
+        raise TypeError(f"YamlCompare failed to convert the requested value to what a {type(option).__base__.__name__} option supports.\
+            \nCaused By:\
+            \n\n{type(ex).__name__}:{ex}")
 
-        if not skipCache:
-            world.yaml_compare_rule_cache[cacheindex] = result
+    if isinstance(value, str) and comp_symbols[comparator].__name__ != 'eq':
+        #At this point if its still a string don't try and compare with strings using > < >= <=
+        raise ValueError(f'YamlCompare can only compare strings with one of the following: {[s for s, v in comp_symbols.items() if v.__name__ == "eq"]} and you tried to do: "{option.value} {comparator} {value}"')
 
-    else: #if exists and not skipCache
-        result = world.yaml_compare_rule_cache[cacheindex]
+    result = comp_symbols[comparator](option.value, value)
 
-    return not result if reverse_result else result
+    to_return = not result if reverse_result else result
+
+    if cache is not None:
+        cache[args] = to_return
+
+    return to_return
 
 
 SIMPLE_FUNCTIONS: frozenset[Callable] = frozenset({ItemValue, canReachLocation, YamlEnabled, YamlDisabled, YamlCompare})
