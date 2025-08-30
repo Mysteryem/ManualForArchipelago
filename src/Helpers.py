@@ -5,7 +5,8 @@ import pkgutil
 import json
 
 from BaseClasses import MultiWorld, Item
-from typing import Optional, List, TYPE_CHECKING, Union, get_args, get_origin
+from enum import IntEnum
+from typing import Optional, List, TYPE_CHECKING, Union, get_args, get_origin, Any
 from types import GenericAlias
 from worlds.AutoWorld import World
 from .hooks.Helpers import before_is_category_enabled, before_is_item_enabled, before_is_location_enabled
@@ -110,7 +111,7 @@ def is_location_enabled(multiworld: MultiWorld, player: int, location: "ManualLo
 
     return _is_manualobject_enabled(multiworld, player, location)
 
-def _is_manualobject_enabled(multiworld: MultiWorld, player: int, object: any) -> bool:
+def _is_manualobject_enabled(multiworld: MultiWorld, player: int, object: Any) -> bool:
     """Internal method: Check if a Manual Object has any category disabled by a yaml option.
     \nPlease use the proper is_'item/location'_enabled or is_'item/location'_name_enabled methods instead.
     """
@@ -213,6 +214,23 @@ def format_to_valid_identifier(input: str) -> str:
     if input[:1].isdigit():
         input = "_" + input
     return input.replace(" ", "_")
+
+class ProgItemsCat(IntEnum):
+    VALUE = 1
+    CATEGORY = 2
+
+def format_state_prog_items_key(category: str|ProgItemsCat ,key: str) -> str:
+    """Convert the inputted key to the format used in state.has(key) to check/set the count of an item_value.
+    Using either one of the predefined categories or a custom string.
+
+    Example: Coin -> MANUAL_VALUE_coin
+    """
+    if isinstance(category, str):
+        cat_key = format_to_valid_identifier(category.upper())
+    else:
+        cat_key = category.name
+
+    return f"MANUAL_{cat_key}_{format_to_valid_identifier(key.lower())}"
 
 def convert_string_to_type(input: str, target_type: type) -> tuple[any, bool]:
     """Take a string and attempt to convert it to {target_type}

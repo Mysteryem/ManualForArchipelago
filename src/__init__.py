@@ -2,7 +2,7 @@ from base64 import b64encode
 import logging
 import os
 import json
-from typing import Callable, Optional
+from typing import Callable, Optional, Counter
 import webbrowser
 
 import Utils
@@ -20,9 +20,9 @@ from .Regions import create_regions
 from .Items import ManualItem
 from .Rules import set_rules
 from .Options import manual_options_data
-from .Helpers import is_item_enabled, get_option_value, get_items_for_player, resolve_yaml_option
+from .Helpers import is_item_enabled, get_option_value, get_items_for_player, resolve_yaml_option, format_state_prog_items_key, ProgItemsCat
 
-from BaseClasses import ItemClassification, Item
+from BaseClasses import CollectionState, ItemClassification, Item
 from Options import PerGameCommonOptions
 from worlds.AutoWorld import World
 
@@ -33,7 +33,8 @@ from .hooks.World import \
     before_set_rules, after_set_rules, \
     before_generate_basic, after_generate_basic, \
     before_fill_slot_data, after_fill_slot_data, before_write_spoiler, \
-    before_extend_hint_information, after_extend_hint_information
+    before_extend_hint_information, after_extend_hint_information, \
+    after_collect_item, after_remove_item
 from .hooks.Data import hook_interpret_slot_data
 
 class ManualWorld(World):
@@ -57,7 +58,8 @@ class ManualWorld(World):
 
     filler_item_name = filler_item_name
 
-    item_counts = {}
+    item_counts: dict[int, Counter[str]] = {}
+    item_counts_progression: dict[int, Counter[str]] = {}
     start_inventory = {}
 
     location_id_to_name = location_id_to_name
@@ -67,13 +69,15 @@ class ManualWorld(World):
     victory_names = victory_names
 
     # UT (the universal-est of trackers) can now generate without a YAML
-    ut_can_gen_without_yaml = True
+    ut_can_gen_without_yaml = False  # Temporary disable until we fix the bugs with it
 
     def get_filler_item_name(self) -> str:
         return hook_get_filler_item_name(self, self.multiworld, self.player) or self.filler_item_name
 
     def interpret_slot_data(self, slot_data: dict[str, any]):
         #this is called by tools like UT
+        if not slot_data:
+            return False
 
         regen = False
         for key, value in slot_data.items():
@@ -86,7 +90,7 @@ class ManualWorld(World):
 
     @classmethod
     def stage_assert_generate(cls, multiworld) -> None:
-        runGenerationDataValidation()
+        runGenerationDataValidation(cls)
 
 
     def create_regions(self):
@@ -107,11 +111,11 @@ class ManualWorld(World):
 
     def create_items(self):
         # Generate item pool
-        pool = []
+        pool: list[Item] = []
         traps = []
         configured_item_names = self.item_id_to_name.copy()
 
-        items_config: dict[str, int|dict[str, int]] = {}
+        items_config: dict[str, int|dict[ItemClassification | str | int, int]] = {}
         for name in configured_item_names.values():
             if name == "__Victory__": continue
             if name == filler_item_name: continue # intentionally using the Game.py filler_item_name here because it's a non-Items item
@@ -236,6 +240,10 @@ class ManualWorld(World):
         # then will remove specific item placements below from the overall pool
         self.multiworld.itempool += pool
 
+        real_pool = pool + items_started
+        self.item_counts[self.player] = self.get_item_counts(pool=real_pool)
+        self.item_counts_progression[self.player] = self.get_item_counts(pool=real_pool, only_progression=True)
+
     def create_item(self, name: str, class_override: Optional['ItemClassification']=None) -> Item:
         name = before_create_item(name, self, self.multiworld, self.player)
 
@@ -262,6 +270,25 @@ class ManualWorld(World):
         item_object = after_create_item(item_object, self, self.multiworld, self.player)
 
         return item_object
+
+    # Item Value need a tweaked collect and remove:
+    def collect(self, state: CollectionState, item: Item) -> bool:
+        change = super().collect(state, item)
+        manual_item = self.item_name_to_item.get(item.name, {})
+        if change and manual_item.get("value"):
+            for key, value in manual_item["value"].items():
+                state.prog_items[item.player][format_state_prog_items_key(ProgItemsCat.VALUE, key)] += int(value)
+        after_collect_item(self, state, change, item)
+        return change
+
+    def remove(self, state: CollectionState, item: Item) -> bool:
+        change = super().remove(state, item)
+        manual_item = self.item_name_to_item.get(item.name, {})
+        if change and manual_item.get("value"):
+            for key, value in manual_item["value"].items():
+                state.prog_items[item.player][format_state_prog_items_key(ProgItemsCat.VALUE, key)] -= int(value)
+        after_remove_item(self, state, change, item)
+        return change
 
     def set_rules(self):
         before_set_rules(self, self.multiworld, self.player)
@@ -450,15 +477,28 @@ class ManualWorld(World):
 
         return item_pool
 
-    def get_item_counts(self, player: Optional[int] = None, reset: bool = False) -> dict[str, int]:
-        """returns the player real item count"""
+    def get_item_counts(self, player: Optional[int] = None, pool: list[Item] | None | bool = None, only_progression: bool = False) -> Counter[str]:
+        """Returns the player real item counts.\n
+        If you provide an item pool using the pool argument, then it's item counts will be returned.
+        Otherwise, this function will only work after create_items, before then an empty Counter is returned.\n
+        The only_progression argument let you filter the items to only get the count of progression items."""
         if player is None:
             player = self.player
 
-        if not self.item_counts.get(player, {}) or reset:
-            real_pool = get_items_for_player(self.multiworld, player, True)
-            self.item_counts[player] = {i.name: real_pool.count(i) for i in real_pool}
-        return self.item_counts.get(player)
+        if isinstance(pool, bool):
+            Utils.deprecate("the 'reset' argument of get_item_counts has been deprecated to increase the stability of item counts.\
+                \nIt should be removed. If you require a new up to date count you can get it using the 'pool' argument.\
+                \nThat result wont be saved to world unless you override the values of world.item_counts_progression or world.item_counts depending on if you counted only the items with progresion or not.")
+            pool = None
+
+        if pool is not None:
+            return Counter([i.name for i in pool if not only_progression or i.advancement])
+
+        if only_progression:
+            return self.item_counts_progression.get(player, Counter())
+        else:
+            return self.item_counts.get(player, Counter())
+
 
     def client_data(self):
         return {
@@ -491,7 +531,7 @@ class VersionedComponent(Component):
         self.version = version
 
 def add_client_to_launcher() -> None:
-    version = 2025_04_17 # YYYYMMDD
+    version = 2025_08_12 # YYYYMMDD
     found = False
 
     if "manual" not in icon_paths:
